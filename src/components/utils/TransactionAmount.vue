@@ -70,6 +70,10 @@ export default class TransactionAmount extends Vue {
       // @ts-ignore
       return this.calculateMultipaymentAmount(this.transaction, this.address, this.transactionTab);
     }
+    // @ts-ignore
+    else if (this.isStakeCreate(this.transaction.type, this.transaction.typeGroup)) {
+      return this.transaction.asset.stakeCreate.amount;
+    }
 
     return this.transaction.amount;
   }
