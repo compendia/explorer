@@ -24,10 +24,10 @@
         <span>{{ $t("COMMON.HEIGHT") }}:</span>
         <span class="block md:inline-block">{{ readableNumber(height) }}</span>
       </div>
-      <div class="mr-2">
+      <!-- <div class="mr-2">
         <span>{{ networkToken() }}/{{ name }}:</span>
         <span class="block md:inline-block">{{ rawCurrency(rate, name) }}</span>
-      </div>
+      </div> -->
       <div>
         <span>{{ $t("HEADER.SUPPLY") }}:</span>
         <span class="block whitespace-no-wrap md:inline-block">{{ readableCrypto(supply, true, 0) }}</span>
