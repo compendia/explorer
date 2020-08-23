@@ -39,6 +39,7 @@ Vue.component("TableLockTransactionsMobile", require("@/components/tables/mobile
 Vue.component("TableBusinessesMobile", require("@/components/tables/mobile/Businesses").default);
 Vue.component("TableBridgechainsMobile", require("@/components/tables/mobile/Bridgechains").default);
 Vue.component("TableDelegatesMobile", require("@/components/tables/mobile/Delegates").default);
+Vue.component("TableStakeTransactionsMobile", require("@/components/tables/mobile/StakeTransactions").default);
 
 // Inputs
 Vue.component("InputDate", require("@/components/input/InputDate").default);

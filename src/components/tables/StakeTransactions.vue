@@ -56,8 +56,7 @@ import CryptoCompareService from "@/services/crypto-compare";
   },
 })
 export default class LockTransactionsDesktop extends Vue {
-  @Prop({ required: true })
-  public stakes: IStakeWrapper | null;
+  @Prop({ required: true }) public stakes: IStakeWrapper | null;
 
   private activeDelegates: IDelegate[];
   private isListed: boolean;
@@ -75,8 +74,8 @@ export default class LockTransactionsDesktop extends Vue {
       {
         label: this.$t("STAKE.STATUS"),
         field: "status",
-        thClass: "start-cell cell-smartbridge",
-        tdClass: "start-cell cell-smartbridge",
+        thClass: "start-cell",
+        tdClass: "start-cell",
       },
       {
         label: this.$t("STAKE.DURATION"),
@@ -94,7 +93,6 @@ export default class LockTransactionsDesktop extends Vue {
         field: "amount",
         type: "number",
         thClass: "text-right",
-        tdClass: "",
       },
       {
         label: this.$t("STAKE.POWER"),
@@ -105,7 +103,7 @@ export default class LockTransactionsDesktop extends Vue {
         label: this.$t("STAKE.RELEASE"),
         field: "timestamps.redeemable",
         thClass: "end-cell",
-        tdClass: "end-cell",
+        tdClass: "end-cell wrap-timestamp",
       },
     ];
 

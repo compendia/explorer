@@ -3,7 +3,12 @@
     <h2 class="px-5 md:px-10 mb-5 text-2xl text-theme-text-primary">
       {{ $t("COMMON.STAKES") }}
     </h2>
-    <TableStakeTransactionsDesktop :stakes="wallet.stakes" />
+    <div class="hidden sm:block">
+      <TableStakeTransactionsDesktop :stakes="wallet.stakes" />
+    </div>
+    <div class="sm:hidden">
+      <TableStakeTransactionsMobile :stakes="wallet.stakes" />
+    </div>
   </section>
 </template>
 
