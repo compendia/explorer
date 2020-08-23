@@ -14,7 +14,7 @@ export default {
         });
 
         return appendCurrency
-          ? `${normalizedValue} ${store.getters["network/symbol"] || store.getters["network/defaults"].symbol || ""}`
+          ? `${store.getters["network/symbol"] || store.getters["network/defaults"].symbol || ""} ${normalizedValue}`
           : normalizedValue;
       }
     },
