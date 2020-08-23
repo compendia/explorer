@@ -66,7 +66,6 @@ export default class LockTransactionsDesktop extends Vue {
 
   get stakeValues() {
       if (this.stakes) {
-        console.log(this.stakes);
         return Object.values(this.stakes);
       }
   }
