@@ -29,6 +29,15 @@ export default {
     FILTERED: "Filtered",
     HIDDEN: "Hidden",
     I_AGREE: "I Agree",
+    STAKES: "Stakes",
+  },
+
+  STAKE: {
+    DURATION: "Total Duration",
+    TIME_REMAINING: "Time Remaining",
+    POWER: "Power",
+    STATUS: "Status",
+    RELEASE: "Release",
   },
 
   DISCLAIMER: {

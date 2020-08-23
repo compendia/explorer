@@ -11,6 +11,10 @@
       </div>
     </section>
 
+    <section v-show="isStaking" class="py-5 page-section md:py-10 mb-5">
+      <WalletStaking :wallet="wallet" />
+    </section>
+
     <WalletTransactions v-if="wallet" :wallet="wallet" />
   </div>
 </template>
@@ -19,7 +23,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Route } from "vue-router";
 import { IWallet } from "@/interfaces";
-import { WalletDelegate, WalletDetails, WalletTransactions, WalletVote } from "@/components/wallet";
+import { WalletDelegate, WalletDetails, WalletStaking, WalletTransactions, WalletVote } from "@/components/wallet";
 import WalletService from "@/services/wallet";
 
 Component.registerHooks(["beforeRouteEnter", "beforeRouteUpdate"]);
@@ -28,6 +32,7 @@ Component.registerHooks(["beforeRouteEnter", "beforeRouteUpdate"]);
   components: {
     WalletDelegate,
     WalletDetails,
+    WalletStaking,
     WalletTransactions,
     WalletVote,
   },
@@ -39,6 +44,12 @@ export default class WalletPage extends Vue {
   get isDelegate() {
     if (this.wallet) {
       return this.wallet.isDelegate;
+    }
+  }
+
+  get isStaking() {
+    if (this.wallet) {
+      return Object.keys(this.wallet.stakes).length > 0;
     }
   }
 

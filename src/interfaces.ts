@@ -119,6 +119,12 @@ export interface IWallet {
   isDelegate: boolean;
   isResigned?: boolean;
   lockedBalance?: BigNumber;
+  stakes: IStakeWrapper;
+}
+
+// TODO: proper IStake type
+export interface IStakeWrapper {
+  [key: string]: any;
 }
 
 export interface IApiResponse {

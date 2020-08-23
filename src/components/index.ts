@@ -29,6 +29,7 @@ Vue.component("TableLockTransactionsDesktop", require("@/components/tables/LockT
 Vue.component("TableBusinessesDesktop", require("@/components/tables/Businesses").default);
 Vue.component("TableBridgechainsDesktop", require("@/components/tables/Bridgechains").default);
 Vue.component("TableDelegatesDesktop", require("@/components/tables/Delegates").default);
+Vue.component("TableStakeTransactionsDesktop", require("@/components/tables/StakeTransactions").default);
 
 Vue.component("TableBlocksMobile", require("@/components/tables/mobile/Blocks").default);
 Vue.component("TableTransactionsMobile", require("@/components/tables/mobile/Transactions").default);

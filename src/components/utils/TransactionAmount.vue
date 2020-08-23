@@ -42,6 +42,7 @@ import { CoreTransaction, MagistrateTransaction, TypeGroupTransaction } from "@/
 export default class TransactionAmount extends Vue {
   @Prop({ required: true }) public transaction: ITransaction;
   @Prop({ required: false, default: false }) public isFee: boolean;
+  @Prop({ required: false, default: 0 }) public stakePower: number;
   @Prop({ required: false, default: "top" }) public tooltipPlacement: string;
 
   get transactionTab() {
@@ -63,6 +64,10 @@ export default class TransactionAmount extends Vue {
   get source() {
     if (this.isFee) {
       return this.transaction.fee;
+    }
+
+    if (this.stakePower) {
+      return this.stakePower;
     }
 
     // @ts-ignore
