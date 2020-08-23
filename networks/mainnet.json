@@ -1,35 +1,21 @@
 {
-  "title": "ARK Explorer",
-  "server": "https://explorer.ark.io/api",
+  "title": "Compendia Explorer",
+  "server": "https://api.compendia.org/api",
   "alias": "Main",
-  "activeDelegates": 51,
-  "rewardOffset": 75600,
+  "activeDelegates": 47,
+  "rewardOffset": 300000,
   "currencies": {
-    "AUD": "A$",
-    "BRL": "R$",
-    "BTC": "Ƀ",
-    "CAD": "C$",
-    "CHF": "CHF",
-    "CNY": "¥",
-    "ETH": "Ξ",
-    "EUR": "€",
-    "GBP": "£",
-    "JPY": "¥",
-    "KRW": "₩",
-    "LTC": "Ł",
-    "NZD": "N$",
-    "RUB": "₽",
     "USD": "$"
   },
   "defaults": {
-    "token": "ARK",
-    "symbol": "Ѧ",
+    "token": "BIND",
+    "symbol": "ß",
     "currency": {
       "name": "USD",
       "symbol": "$"
     },
     "priceChartOptions": {
-      "enabled": true,
+      "enabled": false,
       "period": "day",
       "type": "price"
     }
