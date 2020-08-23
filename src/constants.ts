@@ -42,6 +42,7 @@ export const transactionTypes: ITransactionType[] = [
     type: MagistrateTransaction.BRIDGECHAIN_UPDATE,
     typeGroup: TypeGroupTransaction.MAGISTRATE,
   },
+  // TODO: add compendia
 ];
 
 export const apiLimit = 100;
