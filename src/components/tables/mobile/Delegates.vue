@@ -23,6 +23,15 @@
           </div>
         </div>
 
+        <div v-if="delegate.files.logo" class="list-row-border-b">
+          <div class="mr-4">
+            {{ $t("STAKE.LOGO") }}
+          </div>
+          <div>
+            <IpfsImage custom-class="w-12 h-12" :hash="delegate.files.logo" />
+          </div>
+        </div>
+
         <div class="list-row-border-b">
           <div class="mr-4">
             {{ $t("PAGES.DELEGATE_MONITOR.FORGED_BLOCKS") }}

@@ -7,7 +7,7 @@
 
     <div v-if="delegate.files.logo" class="list-row-border-b">
       <div>{{ $t("STAKE.LOGO") }}</div>
-      <div><img v-if="logoData" loading="lazy" :src="logoData" class="w-16 h-16" /></div>
+      <div><img v-if="logoData" loading="lazy" :src="logoData" class="w-16 h-16 object-contain" /></div>
     </div>
 
     <div class="list-row-border-b">
