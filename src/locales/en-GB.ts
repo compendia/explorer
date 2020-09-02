@@ -38,6 +38,9 @@ export default {
     POWER: "Power",
     STATUS: "Status",
     RELEASE: "Release",
+    STAKED: "Staked",
+    STAKE_POWER: "Stake Power",
+    TOTAL_POWER: "Total Power",
   },
 
   DISCLAIMER: {

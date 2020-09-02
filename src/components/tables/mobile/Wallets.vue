@@ -23,6 +23,28 @@
           <div>{{ readableCrypto(row.balance) }}</div>
         </div>
 
+        <!-- TODO: determine stakes -->
+        <!-- <div class="list-row-border-b">
+          <div class="mr-4">
+            {{ $t("STAKE.STAKED") }}
+          </div>
+          <div>{{ readableCrypto(row.balance) }}</div>
+        </div> -->
+
+        <div class="list-row-border-b">
+          <div class="mr-4">
+            {{ $t("STAKE.STAKE_POWER") }}
+          </div>
+          <div>{{ readableCrypto(row.stakePower) }}</div>
+        </div>
+
+        <div class="list-row-border-b">
+          <div class="mr-4">
+            {{ $t("STAKE.TOTAL_POWER") }}
+          </div>
+          <div>{{ readableCrypto(row.power) }}</div>
+        </div>
+
         <div class="list-row">
           <div class="mr-4">
             {{ $t("COMMON.SUPPLY") }}

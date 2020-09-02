@@ -13,12 +13,31 @@
         </div>
 
         <div v-else-if="data.column.field === 'address'">
-          <LinkWallet :key="data.row.address" :address="data.row.address" :trunc="false" />
+          <LinkWallet :key="data.row.address" :address="data.row.address" :trunc="truncateAddress" />
         </div>
 
         <div v-else-if="data.column.field === 'balance'">
           <span>
             {{ readableCrypto(data.row.balance, true, truncateBalance ? 2 : 8) }}
+          </span>
+        </div>
+
+        <!-- TODO: determine staked amounts -->
+        <!-- <div v-else-if="data.column.field === 'staked'">
+          <span>
+            {{ readableCrypto(data.row.balance, true, truncateBalance ? 2 : 8) }}
+          </span>
+        </div> -->
+
+        <div v-else-if="data.column.field === 'stakePower'">
+          <span>
+            {{ readableCrypto(data.row.stakePower, true, truncateBalance ? 2 : 8) }}
+          </span>
+        </div>
+
+        <div v-else-if="data.column.field === 'power'">
+          <span>
+            {{ readableCrypto(data.row.power, true, truncateBalance ? 2 : 8) }}
           </span>
         </div>
 
@@ -44,7 +63,11 @@ import { paginationLimit } from "@/constants";
 })
 export default class TableWalletsDesktop extends Vue {
   get truncateBalance() {
-    return this.windowWidth < 700;
+    return true;
+  }
+
+  get truncateAddress() {
+    return this.windowWidth < 850;
   }
 
   get columns() {
@@ -63,6 +86,26 @@ export default class TableWalletsDesktop extends Vue {
       {
         label: this.$t("COMMON.BALANCE"),
         field: "balance",
+        type: "number",
+        tdClass: "whitespace-no-wrap",
+      },
+      {
+        label: this.$t("STAKE.STAKED"),
+        field: "balance",
+        type: "number",
+        thClass: "hidden xl:table-cell",
+        tdClass: "hidden xl:table-cell whitespace-no-wrap",
+      },
+      {
+        label: this.$t("STAKE.STAKE_POWER"),
+        field: "stakePower",
+        type: "number",
+        thClass: "hidden lg:table-cell",
+        tdClass: "hidden lg:table-cell whitespace-no-wrap",
+      },
+      {
+        label: this.$t("STAKE.TOTAL_POWER"),
+        field: "power",
         type: "number",
         tdClass: "whitespace-no-wrap",
       },
