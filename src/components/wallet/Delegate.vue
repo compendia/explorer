@@ -5,6 +5,11 @@
       <div>{{ delegate.username }}</div>
     </div>
 
+    <div v-if="delegate.files.logo" class="list-row-border-b">
+      <div>{{ $t("STAKE.LOGO") }}</div>
+      <div><img v-if="logoData" loading="lazy" :src="logoData" class="w-16 h-16" /></div>
+    </div>
+
     <div class="list-row-border-b">
       <div>{{ $t("WALLET.DELEGATE.STATUS.TITLE") }}</div>
       <div :class="delegateStatus.class">{{ delegateStatus.text }}</div>
@@ -77,6 +82,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { IWallet } from "@/interfaces";
 import WalletVoters from "@/components/wallet/Voters.vue";
+import { IPFSService } from '@/services';
 
 @Component({
   components: {
@@ -86,8 +92,19 @@ import WalletVoters from "@/components/wallet/Voters.vue";
 export default class WalletDelegate extends Vue {
   @Prop({ required: true }) public wallet: IWallet;
 
+  private logoData: string | null = null;
+
   get delegate() {
     return this.$store.getters["delegates/byPublicKey"](this.wallet.publicKey);
+  }
+
+  public mounted() {
+    this.fetchLogo();
+  }
+
+  private async fetchLogo() {
+    // @ts-ignore
+    this.logoData = await IPFSService.fetchData(this.wallet.files.logo);
   }
 
   get delegateStatus() {

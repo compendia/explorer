@@ -6,6 +6,7 @@ import BusinessService from "./business";
 import CryptoCompareService from "./crypto-compare";
 import DelegateService from "./delegate";
 import ForgingService from "./forging";
+import IPFSService from "./ipfs";
 import LockService from "./lock";
 import MigrationService from "./migration";
 import NodeService from "./node";
@@ -23,6 +24,7 @@ export {
   CryptoCompareService,
   DelegateService,
   ForgingService,
+  IPFSService,
   LockService,
   MigrationService,
   NodeService,

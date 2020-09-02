@@ -57,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div v-if="transactions && !transactions.length" class="px-5 md:px-10">
+      <div v-if="stakeValues && !stakeValues.length" class="px-5 md:px-10">
         <span>{{ $t("COMMON.NO_RESULTS") }}</span>
       </div>
     </Loader>
@@ -75,7 +75,7 @@ import { mapGetters } from "vuex";
     ...mapGetters("ui", ["smartbridgeFilter"]),
   },
 })
-export default class TableLockTransactionsMobile extends Vue {
+export default class StakeTransactionsMobile extends Vue {
   @Prop({ required: true }) public stakes: IStakeWrapper | null;
 
   get stakeValues() {

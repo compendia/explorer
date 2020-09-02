@@ -41,6 +41,7 @@ export default {
     STAKED: "Staked",
     STAKE_POWER: "Stake Power",
     TOTAL_POWER: "Total Power",
+    LOGO: "Logo",
   },
 
   DISCLAIMER: {
