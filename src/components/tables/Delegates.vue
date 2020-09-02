@@ -14,6 +14,10 @@
           </span>
         </div>
 
+        <div v-else-if="data.column.field === 'logo'">
+          <IpfsImage v-if="data.row.files.logo" custom-class="w-12 h-12" :hash="data.row.files.logo" />
+        </div>
+
         <div v-else-if="data.column.field === 'username'" class="flex items-center">
           <LinkWallet :key="data.row.address" :address="data.row.address">
             {{ data.row.username }}
@@ -45,6 +49,7 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import { IDelegate, ISortParameters } from "@/interfaces";
+import { IPFSService } from '@/services';
 
 @Component
 export default class TableDelegatesDesktop extends Vue {
@@ -57,6 +62,8 @@ export default class TableDelegatesDesktop extends Vue {
   public delegates: IDelegate[] | null;
   @Prop({ required: false, default: false }) public hideRanks: boolean;
 
+  private delegateLogos: string[] = [];
+
   get columns() {
     let columns = [
       {
@@ -66,6 +73,11 @@ export default class TableDelegatesDesktop extends Vue {
         sortFn: this.sortByRank,
         thClass: "start-cell w-32",
         tdClass: "start-cell w-32",
+      },
+      {
+        label: this.$t("STAKE.LOGO"),
+        sortable: false,
+        field: "logo",
       },
       {
         label: this.$t("WALLET.DELEGATE.USERNAME"),

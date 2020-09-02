@@ -19,6 +19,10 @@
           >
         </div>
 
+        <div v-else-if="data.column.field === 'logo'">
+          <IpfsImage v-if="data.row.files.logo" custom-class="w-12 h-12" :hash="data.row.files.logo" />
+        </div>
+
         <div v-else-if="data.column.field === 'blocks.produced'">
           {{ readableNumber(data.row.blocks.produced) }}
         </div>
@@ -76,6 +80,11 @@ export default class TableDelegates extends Vue {
         type: "number",
         thClass: "start-cell w-32",
         tdClass: "start-cell w-32",
+      },
+      {
+        label: this.$t("STAKE.LOGO"),
+        sortable: false,
+        field: "logo",
       },
       {
         label: this.$t("WALLET.DELEGATE.USERNAME"),

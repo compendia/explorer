@@ -6,6 +6,7 @@ import Vue from "vue";
 
 // Utilities
 Vue.component("Clipboard", require("@/components/utils/Clipboard").default);
+Vue.component("IpfsImage", require("@/components/utils/IpfsImage").default);
 Vue.component("Loader", require("@/components/utils/Loader").default);
 Vue.component("Pagination", require("@/components/utils/pagination/Pagination").default);
 Vue.component("QrCode", require("@/components/utils/QrCode").default);
