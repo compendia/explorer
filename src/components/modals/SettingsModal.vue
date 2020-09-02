@@ -21,7 +21,7 @@
               @input="onSelectChange"
             />
           </ListDividedItem>
-          <ListDividedItem :label="$t('MODAL_SETTINGS.SMARTBRIDGE_FILTER')">
+          <ListDividedItem v-if="!hideSmartbridgeSetting" :label="$t('MODAL_SETTINGS.SMARTBRIDGE_FILTER')">
             <InputSelect
               :select-options="selectSmartbridgeFilter"
               :value="smartbridgeFilter"
@@ -149,6 +149,10 @@ export default class SettingsModal extends Vue {
   // No longer show the disclaimer if the user has accepted the terms
   get showDisclaimer() {
     return this.smartbridgeFilter === "unfiltered" && !this.notShowDisclaimer;
+  }
+
+  get hideSmartbridgeSetting() {
+    return process.env.VUE_APP_SMARTBRIDGE_DISABLED ?? false;
   }
 
   get hasAcceptedTerms() {

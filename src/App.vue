@@ -122,7 +122,11 @@ export default class App extends Vue {
       }
     }
 
-    this.$store.dispatch("ui/setSmartbridgeFilter", localStorage.getItem("smartbridgeFilter") || "filtered");
+    if (process.env.VUE_APP_SMARTBRIDGE_DISABLED ?? false) {
+      this.$store.dispatch("ui/setSmartbridgeFilter", "hidden");
+    } else {
+      this.$store.dispatch("ui/setSmartbridgeFilter", localStorage.getItem("smartbridgeFilter") || "filtered");
+    }
 
     this.$store.dispatch("ui/setLanguage", localStorage.getItem("language") || "en-GB");
 
