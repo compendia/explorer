@@ -103,14 +103,13 @@ class DelegateService {
 
   public async standby(): Promise<IDelegate[]> {
     const activeDelegates = store.getters["network/activeDelegates"];
-
     const response = (await ApiService.get("delegates", {
       params: {
         offset: activeDelegates,
         limit:
-          activeDelegates < paginationLimit
-            ? paginationLimit + (paginationLimit - (activeDelegates % paginationLimit))
-            : paginationLimit - (activeDelegates % paginationLimit),
+          activeDelegates < apiLimit
+            ? activeDelegates
+            : apiLimit,
       },
     })) as IApiDelegatesWrapper;
 
