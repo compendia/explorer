@@ -12,6 +12,7 @@ import MigrationService from "./migration";
 import NodeService from "./node";
 import RoundService from "./round";
 import SearchService from "./search";
+import StakeService from "./stake";
 import TransactionService from "./transaction";
 import WalletService from "./wallet";
 
@@ -30,6 +31,7 @@ export {
   NodeService,
   RoundService,
   SearchService,
+  StakeService,
   TransactionService,
   WalletService,
 };

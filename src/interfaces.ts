@@ -206,6 +206,14 @@ export interface IApiNodeStatus {
   timestamp: number;
 }
 
+export interface IApiStakeStatistics {
+  supply: string,
+  removed: string,
+  staked: string,
+  stakePower: string,
+  stakes: any,
+}
+
 export interface ICurrencyState {
   name: string;
   rate: number;
@@ -266,6 +274,14 @@ export interface IUiState {
   walletSearchSortParams: string | null;
   walletTransactionTab: string | null;
   hasAcceptedLinkDisclaimer: boolean;
+}
+
+export interface ICustomStoreState {
+  supply: string,
+  removed: string,
+  staked: string,
+  stakePower: string,
+  stakes: any, // unused
 }
 
 export interface IStorePayload {

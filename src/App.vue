@@ -31,6 +31,7 @@ import {
   DelegateService,
   MigrationService,
   NodeService,
+  StakeService,
 } from "@/services";
 import { knownWalletsUrls } from "@/config";
 import { mapGetters } from "vuex";
@@ -147,6 +148,8 @@ export default class App extends Vue {
 
     await this.checkForMagistrateEnabled();
     this.setEnabledTransactionTypes();
+
+    this.updateStakes();
   }
 
   public mounted() {
@@ -195,6 +198,15 @@ export default class App extends Vue {
   public async updateSupply() {
     const supply = await BlockchainService.supply();
     this.$store.dispatch("network/setSupply", supply);
+  }
+
+  public async updateStakes() {
+    const stakeData = await StakeService.fetchStakes();
+
+    this.$store.dispatch("custom/setSupply", stakeData.supply);
+    this.$store.dispatch("custom/setRemoved", stakeData.removed);
+    this.$store.dispatch("custom/setStaked", stakeData.staked);
+    this.$store.dispatch("custom/setStakePower", stakeData.stakePower);
   }
 
   public async updateHeight() {
@@ -254,6 +266,7 @@ export default class App extends Vue {
       this.updateSupply();
       this.updateHeight();
       this.updateDelegates();
+      this.updateStakes();
     }, 8 * 1000);
   }
 

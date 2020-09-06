@@ -44,7 +44,7 @@
 
         <div v-else-if="data.column.field === 'votes'">
           <span v-tooltip="$t('COMMON.SUPPLY_PERCENTAGE')" class="mr-1 text-xs text-grey">
-            {{ percentageString(data.row.production.approval) }}
+            {{ percentageString(calculateApproval(data.row.votes)) }}
           </span>
           {{ readableCrypto(data.row.votes, true, 2) }}
         </div>
@@ -60,8 +60,14 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { IDelegate, ISortParameters } from "@/interfaces";
+import { mapGetters } from 'vuex';
+import { BigNumber } from "@/utils";
 
-@Component
+@Component({
+  computed: {
+    ...mapGetters("custom", ["supply", "stakePower"]),
+  },
+})
 export default class TableDelegates extends Vue {
   @Prop({
     required: true,
@@ -71,6 +77,9 @@ export default class TableDelegates extends Vue {
   })
   public delegates: IDelegate[] | null;
   @Prop({ required: false, default: "active" }) public activeTab: string;
+
+  private stakePower: string;
+  private supply: string;
 
   get columns() {
     let columns = [
@@ -193,6 +202,10 @@ export default class TableDelegates extends Vue {
       3: "not-forging", // never-forged
       4: "became-active",
     }[row.forgingStatus];
+  }
+
+  private calculateApproval(votes: string): string {
+    return BigNumber.make(votes).dividedBy(BigNumber.make(this.supply).plus(BigNumber.make(this.stakePower))).times(100).toString();
   }
 
   private sortByLastBlockHeight(x: number, y: number, col: number, rowX: any, rowY: any) {
