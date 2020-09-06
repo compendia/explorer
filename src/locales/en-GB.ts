@@ -42,6 +42,7 @@ export default {
     STAKE_POWER: "Stake Power",
     TOTAL_POWER: "Total Power",
     LOGO: "Logo",
+    DELEGATE_DISCLAIMER: "Validator description and logo is uploaded by validator {delegate} and fetched from a decentralized network. The developer of this application is not liable for any user submitted content."
   },
 
   DISCLAIMER: {

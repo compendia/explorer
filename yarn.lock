@@ -3155,6 +3155,7 @@ __metadata:
     prettier: ^2.0.5
     prettier-eslint: ^9.0.1
     qrious: ^4.0.2
+    sanitize-html: ^1.27.4
     sinon: ^9.0.2
     stylus: ^0.54.7
     stylus-loader: ^3.0.2
@@ -5971,6 +5972,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-serializer@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "dom-serializer@npm:1.0.1"
+  dependencies:
+    domelementtype: ^2.0.1
+    domhandler: ^3.0.0
+    entities: ^2.0.0
+  checksum: 3/45734411e474813859cde8d5513a5cf424c592a6fd82e97ef1504d277b021aac6ddbfedb88ae683d7f8ff80d5cd7991a5301aefb33a04ae6bec781669e2e5f7b
+  languageName: node
+  linkType: hard
+
 "domain-browser@npm:^1.1.1":
   version: 1.2.0
   resolution: "domain-browser@npm:1.2.0"
@@ -6010,6 +6022,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"domhandler@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "domhandler@npm:3.0.0"
+  dependencies:
+    domelementtype: ^2.0.1
+  checksum: 3/2d935dbe3eafb5e5bcbd512d9bab541fdfcdcb36b9a73ab32bd8cbb2d055ee0d689c921f68774ee2afb97d4ef49e0932ddfb0c9d4ea0135457106ef508924b56
+  languageName: node
+  linkType: hard
+
 "domready@npm:1.0.8":
   version: 1.0.8
   resolution: "domready@npm:1.0.8"
@@ -6034,6 +6055,17 @@ __metadata:
     dom-serializer: 0
     domelementtype: 1
   checksum: 3/a5b2f01fb3ff626073e3c3b43fedcff34073fb059b1235ee31cd0b5690d826304f41bc3fd117f95d754a1666ac3a57d224b408d83dd4f1c4525fd5b636d8df6f
+  languageName: node
+  linkType: hard
+
+"domutils@npm:^2.0.0":
+  version: 2.2.0
+  resolution: "domutils@npm:2.2.0"
+  dependencies:
+    dom-serializer: ^1.0.1
+    domelementtype: ^2.0.1
+    domhandler: ^3.0.0
+  checksum: 3/2a8aed430713f544b9a780c07407259292e8c519fa9249bf34b0a87e492616846812cfe8cb623f03e9d6de8c5215f7242714ab480a3355ed48daebd303da4f41
   languageName: node
   linkType: hard
 
@@ -8169,6 +8201,18 @@ fsevents@~2.1.2:
     inherits: ^2.0.1
     readable-stream: ^3.1.1
   checksum: 3/94fa6312e6c378b1c0f1626d3f468f0b25c5dcf6689bfa61fa0002c044c4c77842b5122feb84b501b02539165917febba0ffe754046996c9e8ed77c1bb65e66c
+  languageName: node
+  linkType: hard
+
+"htmlparser2@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "htmlparser2@npm:4.1.0"
+  dependencies:
+    domelementtype: ^2.0.1
+    domhandler: ^3.0.0
+    domutils: ^2.0.0
+    entities: ^2.0.0
+  checksum: 3/4a5d9ecbe339a500c23187740836c94a3b9edba6348995c5359bc832addcc8027633cb98bd5f715b96eb48caefeb5a38a1d6187522f45c1dc2b2be45a2f807ed
   languageName: node
   linkType: hard
 
@@ -12070,6 +12114,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"parse-srcset@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "parse-srcset@npm:1.0.2"
+  checksum: 3/f79a26845a6ec70c5b97713798cc8492854ac246e5979cd081db68fa811a96a90399bfea7691edf516491c79e8450ed2cfacdcd2c75ff18250c4847dd552dbc4
+  languageName: node
+  linkType: hard
+
 "parse5-htmlparser2-tree-adapter@npm:^5.1.1":
   version: 5.1.1
   resolution: "parse5-htmlparser2-tree-adapter@npm:5.1.1"
@@ -14063,6 +14114,18 @@ resolve@1.1.7:
   bin:
     sane: ./src/cli.js
   checksum: 3/e384e252021b1afef7459e994fe3ea79d114a0e7d23a03e660444abf15a2b4c50ce7eac2810b2c289e857c618d96fb35ee66356ebd4d6cb97cb11b54b2b29600
+  languageName: node
+  linkType: hard
+
+"sanitize-html@npm:^1.27.4":
+  version: 1.27.4
+  resolution: "sanitize-html@npm:1.27.4"
+  dependencies:
+    htmlparser2: ^4.1.0
+    lodash: ^4.17.15
+    parse-srcset: ^1.0.2
+    postcss: ^7.0.27
+  checksum: 3/9e2309f68302e2ccd34a649714742af6c6f67c6f7c0e296be017d1597e4bb9e0585aea92943664d5e9871724aafc8c25bcf6e550e0c5581afd84c35a7edae238
   languageName: node
   linkType: hard
 
