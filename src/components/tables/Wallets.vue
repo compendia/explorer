@@ -22,12 +22,11 @@
           </span>
         </div>
 
-        <!-- TODO: determine staked amounts -->
-        <!-- <div v-else-if="data.column.field === 'staked'">
+        <div v-else-if="data.column.field === 'stakes'">
           <span>
-            {{ readableCrypto(data.row.balance, true, truncateBalance ? 2 : 8) }}
+            {{ readableCrypto(getStaked(Object.values(data.row.stakes)), true, truncateBalance ? 2 : 8) }}
           </span>
-        </div> -->
+        </div>
 
         <div v-else-if="data.column.field === 'stakePower'">
           <span>
@@ -51,7 +50,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { ISortParameters, IWallet } from "@/interfaces";
+import { ISortParameters, IWallet, IStake } from "@/interfaces";
 import { mapGetters } from "vuex";
 import { BigNumber } from "@/utils";
 import { paginationLimit } from "@/constants";
@@ -91,7 +90,7 @@ export default class TableWalletsDesktop extends Vue {
       },
       {
         label: this.$t("STAKE.STAKED"),
-        field: "balance",
+        field: "stakes",
         type: "number",
         thClass: "hidden xl:table-cell",
         tdClass: "hidden xl:table-cell whitespace-no-wrap",
@@ -156,6 +155,16 @@ export default class TableWalletsDesktop extends Vue {
 
   private emitSortChange(params: ISortParameters[]) {
     this.$emit("on-sort-change", params[0]);
+  }
+
+  private getStaked(stakes: IStake[]) {
+    let staked = BigNumber.ZERO;
+    for (const stake of stakes) {
+      if (stake.status !== 'released') {
+        staked = staked.plus(BigNumber.make(stake.amount));
+      }
+    }
+    return staked.toString();
   }
 }
 </script>

@@ -122,9 +122,17 @@ export interface IWallet {
   stakes: IStakeWrapper;
 }
 
-// TODO: proper IStake type
 export interface IStakeWrapper {
-  [key: string]: any;
+  [key: string]: IStake;
+}
+
+export interface IStake {
+  status: string;
+  amount: BigNumber;
+  duration: number;
+  power: BigNumber;
+  timestamps: any;
+  senderPublicKey: string;
 }
 
 export interface IApiResponse {

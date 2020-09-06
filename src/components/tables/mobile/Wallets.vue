@@ -23,13 +23,12 @@
           <div>{{ readableCrypto(row.balance) }}</div>
         </div>
 
-        <!-- TODO: determine stakes -->
-        <!-- <div class="list-row-border-b">
+        <div class="list-row-border-b">
           <div class="mr-4">
             {{ $t("STAKE.STAKED") }}
           </div>
-          <div>{{ readableCrypto(row.balance) }}</div>
-        </div> -->
+          <div>{{ readableCrypto(getStaked(Object.values(row.stakes))) }}</div>
+        </div>
 
         <div class="list-row-border-b">
           <div class="mr-4">
@@ -61,7 +60,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { IWallet } from "@/interfaces";
+import { IWallet, IStake } from "@/interfaces";
 import { mapGetters } from "vuex";
 import { BigNumber } from "@/utils";
 import { paginationLimit } from "@/constants";
@@ -92,6 +91,16 @@ export default class TableWalletsMobile extends Vue {
     const page = Number(this.$route.params.page) > 1 ? Number(this.$route.params.page) - 1 : 0;
 
     return page * paginationLimit + (index + 1);
+  }
+
+  private getStaked(stakes: IStake[]) {
+    let staked = BigNumber.ZERO;
+    for (const stake of stakes) {
+      if (stake.status !== 'released') {
+        staked = staked.plus(BigNumber.make(stake.amount));
+      }
+    }
+    return staked.toString();
   }
 }
 </script>
