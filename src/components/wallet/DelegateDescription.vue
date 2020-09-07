@@ -40,7 +40,7 @@ export default class WalletDelegateDescription extends Vue {
 
 <style>
 .DelegateDescription {
-  @apply .overflow-y-scroll;
+  @apply .overflow-y-auto;
   line-height: 1.625;
 }
 

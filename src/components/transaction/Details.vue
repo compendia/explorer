@@ -49,7 +49,7 @@
             {{ readableCrypto(multipaymentAmount) }}
           </div>
           <div
-            v-if="isStakeCreate(transaction.type, transaction.typeGroup)"
+            v-else-if="isStakeCreate(transaction.type, transaction.typeGroup)"
             v-tooltip="{
               trigger: 'hover click',
               content: price ? readableCurrency(transaction.asset.stakeCreate.amount, price) : '',
