@@ -40,7 +40,7 @@ import { HeaderDefault, HeaderSearch, HeaderMenuDesktop, HeaderMenuMobile } from
     ...mapGetters("network", ["hasMagistrateEnabled"]),
 
     menuEntries() {
-      const entries = [{ name: "home" }, { name: "top-wallets", params: { page: 1 } }, { name: "delegate-monitor" }];
+      const entries = [{ name: "home" }, { name: "top-wallets", params: { page: 1 } }, { name: "validator-monitor" }];
 
       if (this.hasMagistrateEnabled) {
         entries.push({ name: "businesses", params: { page: 1 } }, { name: "bridgechains", params: { page: 1 } });

@@ -4,8 +4,8 @@ export default {
     BLOCK: "Block",
     BLOCKS: "Blocks",
     CONFIRMATIONS: "Confirmations",
-    DELEGATE: "Delegate",
-    DELEGATES: "Delegates",
+    DELEGATE: "Validator",
+    DELEGATES: "Validators",
     EXPIRATION: "Expiration",
     FEE: "Fee",
     HEIGHT: "Height",
@@ -112,7 +112,7 @@ export default {
       ALL: "All",
       TRANSFER: "Transfer",
       SECOND_SIGNATURE: "2nd Signature Registration",
-      DELEGATE_REGISTRATION: "Delegate Registration",
+      DELEGATE_REGISTRATION: "Validator Registration",
       VOTE: "Vote",
       UNVOTE: "Unvote",
       MULTI_SIGNATURE: "Multisignature Registration",
@@ -122,7 +122,7 @@ export default {
       TIMELOCK_CLAIM: "Timelock Claim",
       TIMELOCK_REFUND: "Timelock Refund",
       MULTI_PAYMENT: "Multipayment",
-      DELEGATE_RESIGNATION: "Delegate Resignation",
+      DELEGATE_RESIGNATION: "Validator Resignation",
       BUSINESS_REGISTRATION: "Business Registration",
       BUSINESS_RESIGNATION: "Business Resignation",
       BUSINESS_UPDATE: "Business Update",
@@ -196,7 +196,7 @@ export default {
   SEARCH: {
     PLACEHOLDER: {
       SHORT: "Search",
-      LONG: "Find a block, transaction, address or delegate",
+      LONG: "Find a block, transaction, address or validator",
     },
     NO_RESULTS: "Nothing matched your search",
   },
@@ -231,10 +231,13 @@ export default {
       RESIGNED: "Resigned",
     },
     DELEGATES: {
-      TITLE: "Delegates",
+      TITLE: "Validators",
+    },
+    VALIDATOR_MONITOR: {
+      TITLE: "Validator Monitor",
     },
     DELEGATE_MONITOR: {
-      TITLE: "Delegate Monitor",
+      TITLE: "Validator Monitor",
       HEADER: {
         LAST_BLOCK: "Last block",
         FORGED: "Forged",

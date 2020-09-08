@@ -149,9 +149,14 @@ const router = new Router({
     },
     {
       path: "/delegate-monitor",
-      name: "delegate-monitor",
+      redirect: (to) => ({ name: "validator-monitor" }),
+      meta: { title: (route: Route) => getTitle("Validator Monitor") },
+    },
+    {
+      path: "/validator-monitor",
+      name: "validator-monitor",
       component: DelegateMonitorComponent,
-      meta: { title: (route: Route) => getTitle("Delegate Monitor") },
+      meta: { title: (route: Route) => getTitle("Validator Monitor") },
     },
     {
       path: "/top-wallets",
@@ -198,26 +203,26 @@ const router = new Router({
       meta: { title: (route: Route) => getTitle("Advanced Search") },
     },
     {
-      path: "/delegates/resigned",
-      redirect: (to) => ({ name: "delegates-resigned", params: { page: 1 } }),
-      meta: { title: (route: Route) => getTitle("Delegates") },
+      path: "/validators/resigned",
+      redirect: (to) => ({ name: "validators-resigned", params: { page: 1 } }),
+      meta: { title: (route: Route) => getTitle("Validators") },
     },
     {
-      path: "/delegates/resigned/:page(\\d+)",
-      name: "delegates-resigned",
+      path: "/validators/resigned/:page(\\d+)",
+      name: "validators-resigned",
       component: DelegateComponent,
-      meta: { title: (route: Route) => getTitle("Delegates") },
+      meta: { title: (route: Route) => getTitle("Validators") },
     },
     {
-      path: "/delegates",
-      redirect: (to) => ({ name: "delegates", params: { page: 1 } }),
-      meta: { title: (route: Route) => getTitle("Delegates") },
+      path: "/validators",
+      redirect: (to) => ({ name: "validators", params: { page: 1 } }),
+      meta: { title: (route: Route) => getTitle("Validators") },
     },
     {
-      path: "/delegates/:page(\\d+)",
-      name: "delegates",
+      path: "/validators/:page(\\d+)",
+      name: "validators",
       component: DelegateComponent,
-      meta: { title: (route: Route) => getTitle("Delegates") },
+      meta: { title: (route: Route) => getTitle("Validators") },
     },
     {
       path: "/404",
@@ -250,7 +255,7 @@ const router = new Router({
     {
       path: "/delegateMonitor",
       redirect: "/delegate-monitor",
-      meta: { title: (route: Route) => getTitle("Delegate Monitor") },
+      meta: { title: (route: Route) => getTitle("Validator Monitor") },
     },
     {
       path: "/topAccounts",

@@ -29,7 +29,7 @@
       <div v-if="delegates && delegates.length === activeDelegates" class="flex flex-wrap mx-5 mt-5 sm:mx-10 md:mt-10">
         <RouterLink
           :to="{
-            name: activeTab === 'resigned' ? 'delegates-resigned' : 'delegates',
+            name: activeTab === 'resigned' ? 'validators-resigned' : 'validators',
             params: { page: activeTab === 'standby' ? 5 : 3 },
           }"
           tag="button"
