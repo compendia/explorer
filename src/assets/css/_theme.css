@@ -1,7 +1,7 @@
 .theme-light {
   --color-theme-text-thead: #c5c7cb;
   --color-theme-table-row-sticky: #fff;
-  --color-theme-accents: #1a202c;
+  --color-theme-accents: #6678ff;
   --color-theme-transaction-icon: #037cff;
 
   --color-theme-page-background-primary: #f5f6fa;
@@ -46,7 +46,7 @@
 .theme-dark {
   --color-theme-text-thead: #a1a2a6;
   --color-theme-table-row-sticky: #25262c;
-  --color-theme-accents: #1a202c;
+  --color-theme-accents: #6678ff;
   --color-theme-transaction-icon: #037cff;
 
   --color-theme-page-background-primary: #1a1b1f;

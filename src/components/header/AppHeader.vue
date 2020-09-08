@@ -2,7 +2,8 @@
   <header v-click-outside="closeHeader" class="mb-5 AppHeader min-h-50px md:min-h-80px sm:mb-10 xl:rounded-md">
     <RouterLink
       :to="{ name: 'home' }"
-      class="flex items-center justify-center flex-none text-2xl logo-container w-50px md:w-80px h-50px md:h-80px bg-theme-accents xl:rounded-l-md"
+      class="flex items-center justify-center flex-none text-2xl logo-container w-50px md:w-80px h-50px md:h-80px xl:rounded-l-md"
+      style="background-color: #1a202c;"
     >
       <img class="logo max-w-25px md:max-w-38px" src="@/assets/images/logo.png" />
     </RouterLink>
