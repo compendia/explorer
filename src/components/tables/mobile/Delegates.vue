@@ -28,7 +28,7 @@
             {{ $t("STAKE.LOGO") }}
           </div>
           <div>
-            <IpfsImage custom-class="w-12 h-12" :hash="delegate.files.logo" />
+            <IpfsImage custom-class="w-12 h-12" :hash="delegate.files.logo" :key="data.row.files.logo" />
           </div>
         </div>
 

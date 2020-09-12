@@ -20,7 +20,7 @@
         </div>
 
         <div v-else-if="data.column.field === 'logo'">
-          <IpfsImage v-if="data.row.files.logo" custom-class="w-12 h-12" :hash="data.row.files.logo" />
+          <IpfsImage v-if="data.row.files.logo" custom-class="w-12 h-12" :hash="data.row.files.logo" :key="data.row.files.logo" />
         </div>
 
         <div v-else-if="data.column.field === 'blocks.produced'">
