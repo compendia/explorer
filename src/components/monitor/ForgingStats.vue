@@ -12,7 +12,7 @@
           {{ totals.forging }}
         </div>
         <div class="text-grey">
-          {{ $t("PAGES.DELEGATE_MONITOR.STATS.FORGED") }}
+          {{ $t("PAGES.VALIDATOR_MONITOR.STATS.FORGED") }}
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
           {{ totals.missedRound }}
         </div>
         <div class="text-grey">
-          {{ $t("PAGES.DELEGATE_MONITOR.STATS.MISSED") }}
+          {{ $t("PAGES.VALIDATOR_MONITOR.STATS.MISSED") }}
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
           {{ totals.notForging + totals.neverForged }}
         </div>
         <div class="text-grey">
-          {{ $t("PAGES.DELEGATE_MONITOR.STATS.NOT_FORGING") }}
+          {{ $t("PAGES.VALIDATOR_MONITOR.STATS.NOT_FORGING") }}
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
           {{ totals.remainingBlocks }}
         </div>
         <div class="text-grey">
-          {{ $t("PAGES.DELEGATE_MONITOR.STATS.IN_QUEUE") }}
+          {{ $t("PAGES.VALIDATOR_MONITOR.STATS.IN_QUEUE") }}
         </div>
       </div>
     </div>

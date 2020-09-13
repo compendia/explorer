@@ -20,7 +20,7 @@ const WalletTransactionsComponent = () =>
   import(/* webpackChunkName: "transactions" */ "@/pages/Wallet/Transactions.vue");
 const TransactionComponent = () => import(/* webpackChunkName: "transaction" */ "@/pages/Transaction.vue");
 const TransactionsComponent = () => import(/* webpackChunkName: "transactions" */ "@/pages/Transactions.vue");
-const DelegateMonitorComponent = () => import(/* webpackChunkName: "delegate-monitor" */ "@/pages/DelegateMonitor.vue");
+const DelegateMonitorComponent = () => import(/* webpackChunkName: "validator-monitor" */ "@/pages/DelegateMonitor.vue");
 const TopWalletsComponent = () => import(/* webpackChunkName: "top-wallets" */ "@/pages/TopWallets.vue");
 const BusinessesComponent = () => import(/* webpackChunkName: "businesses" */ "@/pages/Businesses.vue");
 const BridgechainsComponent = () => import(/* webpackChunkName: "bridgechains" */ "@/pages/Bridgechains.vue");
@@ -148,8 +148,8 @@ const router = new Router({
       meta: { title: (route: Route) => getTitle("Transactions") },
     },
     {
-      path: "/delegate-monitor",
-      name: "delegate-monitor",
+      path: "/validator-monitor",
+      name: "validator-monitor",
       component: DelegateMonitorComponent,
       meta: { title: (route: Route) => getTitle("Validator Monitor") },
     },
@@ -249,7 +249,7 @@ const router = new Router({
     },
     {
       path: "/delegateMonitor",
-      redirect: "/delegate-monitor",
+      redirect: "/validator-monitor",
       meta: { title: (route: Route) => getTitle("Validator Monitor") },
     },
     {

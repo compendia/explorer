@@ -86,7 +86,7 @@ export default class TableDelegatesDesktop extends Vue {
         tdClass: `${this.hideRanks ? "start-cell" : ""} text-left`,
       },
       {
-        label: this.$t("PAGES.DELEGATE_MONITOR.FORGED_BLOCKS"),
+        label: this.$t("PAGES.VALIDATOR_MONITOR.FORGED_BLOCKS"),
         type: "number",
         field: "blocks.produced",
       },
@@ -96,7 +96,7 @@ export default class TableDelegatesDesktop extends Vue {
         field: "forged.total",
       },
       {
-        label: this.$t("PAGES.DELEGATE_MONITOR.VOTES"),
+        label: this.$t("PAGES.VALIDATOR_MONITOR.VOTES"),
         field: "votes",
         type: "number",
         thClass: "end-cell hidden lg:table-cell",

@@ -1,7 +1,7 @@
 describe("Validator Monitor", () => {
   describe("Active Delegates", () => {
     beforeEach(() => {
-      cy.visit("/delegate-monitor");
+      cy.visit("/validator-monitor");
     });
 
     it("should display delegate details", () => {
@@ -134,7 +134,7 @@ describe("Validator Monitor", () => {
     it("should be possible to click the 'show more' button for active delegates", () => {
       cy.get("h1").contains("Validator Monitor").should("exist");
 
-      cy.url().should("include", "/delegate-monitor");
+      cy.url().should("include", "/validator-monitor");
       cy.get("button.button-lg").click();
       cy.url().should("include", "delegates/");
     });
@@ -142,7 +142,7 @@ describe("Validator Monitor", () => {
 
   describe("Standby Delegates", () => {
     beforeEach(() => {
-      cy.visit("/delegate-monitor");
+      cy.visit("/validator-monitor");
       cy.get(".inactive-tab").contains("Standby").click();
     });
 
