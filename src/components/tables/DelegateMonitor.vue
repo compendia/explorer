@@ -23,7 +23,7 @@
           <IpfsImage
             v-if="data.row.files.logo"
             :key="data.row.files.logo"
-            custom-class="w-12 h-12"
+            custom-class="w-12 h-12 rounded-md"
             :hash="data.row.files.logo"
           />
         </div>

@@ -12,12 +12,12 @@
     </section>
 
     <section v-if="isDelegate && wallet.files.description" class="mb-5 page-section">
-      <div class="px-5 sm:px-10">
+      <div class="px-5 sm:px-10" >
         <WalletDelegateDescription :wallet="wallet" />
       </div>
     </section>
 
-    <div v-show="isDelegate" class="text-center text-sm italic mt-1 mb-5 px-5 sm:px-10">
+    <div v-show="isDelegate && wallet.files.description" class="text-center text-sm italic mt-1 mb-5 px-5 sm:px-10">
       {{ $t("STAKE.DELEGATE_DISCLAIMER", { delegate: wallet.username }) }}
     </div>
 

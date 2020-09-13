@@ -1,7 +1,7 @@
 <template>
   <div v-if="delegate" class="WalletDelegate py-10">
     <h2 class="mb-5 text-xl md:text-2xl md:mb-6 text-theme-text-primary">Description</h2>
-    <div class="DelegateDescription" style="max-height: 150px;" v-html="description"></div>
+    <div class="DelegateDescription" style="max-height: 400px;" v-html="description"></div>
   </div>
 </template>
 

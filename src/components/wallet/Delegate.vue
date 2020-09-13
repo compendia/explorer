@@ -2,7 +2,7 @@
   <div v-if="delegate" class="WalletDelegate">
     <div v-if="delegate.files.logo" class="list-row-border-b pt-0 pb-6 md:-mt-6">
       <div class="m-auto">
-        <img v-if="logoData" loading="lazy" :src="logoData" class="w-56 object-contain" />
+        <img v-if="logoData" loading="lazy" :src="logoData" class="w-56 object-contain rounded-lg" />
       </div>
     </div>
 
