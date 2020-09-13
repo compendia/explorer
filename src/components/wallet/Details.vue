@@ -35,7 +35,7 @@
           />
         </div>
         <div class="flex">
-          <div class="text-lg text-white truncate semibold">
+          <div class="text-lg text-white truncate semibold" style="min-width: 35px;">
             <span class="mr-2">{{ wallet.address }}</span>
           </div>
           <Clipboard v-if="wallet.address" :value="wallet.address" />
