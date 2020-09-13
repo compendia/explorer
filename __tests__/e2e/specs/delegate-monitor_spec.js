@@ -1,4 +1,4 @@
-describe("Delegate Monitor", () => {
+describe("Validator Monitor", () => {
   describe("Active Delegates", () => {
     beforeEach(() => {
       cy.visit("/delegate-monitor");
@@ -47,7 +47,7 @@ describe("Delegate Monitor", () => {
 
     it("should be possible to click on the last block", () => {
       cy.get("h1")
-        .contains("Delegate Monitor")
+        .contains("Validator Monitor")
         .should("exist")
         .then(($heading) => {
           const heading = $heading.text();
@@ -64,7 +64,7 @@ describe("Delegate Monitor", () => {
 
     it("should be possible to click on the delegate that forged the last block", () => {
       cy.get("h1")
-        .contains("Delegate Monitor")
+        .contains("Validator Monitor")
         .should("exist")
         .then(($heading) => {
           const heading = $heading.text();
@@ -106,7 +106,7 @@ describe("Delegate Monitor", () => {
 
     it("should be possible to click on an active delegates name", () => {
       cy.get("h1")
-        .contains("Delegate Monitor")
+        .contains("Validator Monitor")
         .should("exist")
         .then(($heading) => {
           const heading = $heading.text();
@@ -132,7 +132,7 @@ describe("Delegate Monitor", () => {
     });
 
     it("should be possible to click the 'show more' button for active delegates", () => {
-      cy.get("h1").contains("Delegate Monitor").should("exist");
+      cy.get("h1").contains("Validator Monitor").should("exist");
 
       cy.url().should("include", "/delegate-monitor");
       cy.get("button.button-lg").click();
@@ -166,7 +166,7 @@ describe("Delegate Monitor", () => {
 
     it("should be possible to click on the standby delegates name", () => {
       cy.get("h1")
-        .contains("Delegate Monitor")
+        .contains("Validator Monitor")
         .should("exist")
         .then(($heading) => {
           const heading = $heading.text();

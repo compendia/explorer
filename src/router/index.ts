@@ -151,7 +151,7 @@ const router = new Router({
       path: "/delegate-monitor",
       name: "delegate-monitor",
       component: DelegateMonitorComponent,
-      meta: { title: (route: Route) => getTitle("Delegate Monitor") },
+      meta: { title: (route: Route) => getTitle("Validator Monitor") },
     },
     {
       path: "/top-wallets",
@@ -250,7 +250,7 @@ const router = new Router({
     {
       path: "/delegateMonitor",
       redirect: "/delegate-monitor",
-      meta: { title: (route: Route) => getTitle("Delegate Monitor") },
+      meta: { title: (route: Route) => getTitle("Validator Monitor") },
     },
     {
       path: "/topAccounts",
