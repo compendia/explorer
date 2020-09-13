@@ -215,11 +215,11 @@ export interface IApiNodeStatus {
 }
 
 export interface IApiStakeStatistics {
-  supply: string,
-  removed: string,
-  staked: string,
-  stakePower: string,
-  stakes: any,
+  supply: string;
+  removed: string;
+  staked: string;
+  stakePower: string;
+  stakes: any;
 }
 
 export interface ICurrencyState {
@@ -285,11 +285,11 @@ export interface IUiState {
 }
 
 export interface ICustomStoreState {
-  supply: string,
-  removed: string,
-  staked: string,
-  stakePower: string,
-  stakes: any, // unused
+  supply: string;
+  removed: string;
+  staked: string;
+  stakePower: string;
+  stakes: any; // unused
 }
 
 export interface IStorePayload {

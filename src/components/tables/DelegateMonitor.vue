@@ -20,7 +20,12 @@
         </div>
 
         <div v-else-if="data.column.field === 'logo'">
-          <IpfsImage v-if="data.row.files.logo" custom-class="w-12 h-12" :hash="data.row.files.logo" :key="data.row.files.logo" />
+          <IpfsImage
+            v-if="data.row.files.logo"
+            :key="data.row.files.logo"
+            custom-class="w-12 h-12"
+            :hash="data.row.files.logo"
+          />
         </div>
 
         <div v-else-if="data.column.field === 'blocks.produced'">
@@ -60,7 +65,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { IDelegate, ISortParameters } from "@/interfaces";
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 import { BigNumber } from "@/utils";
 
 @Component({
@@ -205,7 +210,10 @@ export default class TableDelegates extends Vue {
   }
 
   private calculateApproval(votes: string): string {
-    return BigNumber.make(votes).dividedBy(BigNumber.make(this.supply).plus(BigNumber.make(this.stakePower))).times(100).toString();
+    return BigNumber.make(votes)
+      .dividedBy(BigNumber.make(this.supply).plus(BigNumber.make(this.stakePower)))
+      .times(100)
+      .toString();
   }
 
   private sortByLastBlockHeight(x: number, y: number, col: number, rowX: any, rowY: any) {

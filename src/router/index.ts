@@ -20,7 +20,8 @@ const WalletTransactionsComponent = () =>
   import(/* webpackChunkName: "transactions" */ "@/pages/Wallet/Transactions.vue");
 const TransactionComponent = () => import(/* webpackChunkName: "transaction" */ "@/pages/Transaction.vue");
 const TransactionsComponent = () => import(/* webpackChunkName: "transactions" */ "@/pages/Transactions.vue");
-const DelegateMonitorComponent = () => import(/* webpackChunkName: "validator-monitor" */ "@/pages/DelegateMonitor.vue");
+const DelegateMonitorComponent = () =>
+  import(/* webpackChunkName: "validator-monitor" */ "@/pages/DelegateMonitor.vue");
 const TopWalletsComponent = () => import(/* webpackChunkName: "top-wallets" */ "@/pages/TopWallets.vue");
 const BusinessesComponent = () => import(/* webpackChunkName: "businesses" */ "@/pages/Businesses.vue");
 const BridgechainsComponent = () => import(/* webpackChunkName: "bridgechains" */ "@/pages/Bridgechains.vue");
@@ -35,7 +36,7 @@ function getTitle(title: string): string {
 }
 
 const router = new Router({
-  mode: 'history',
+  mode: "history",
   routes: [
     {
       path: "/",

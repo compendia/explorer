@@ -82,7 +82,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { IWallet } from "@/interfaces";
 import WalletVoters from "@/components/wallet/Voters.vue";
-import { IPFSService } from '@/services';
+import { IPFSService } from "@/services";
 
 @Component({
   components: {

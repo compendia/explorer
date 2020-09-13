@@ -1,7 +1,6 @@
-import Axios from 'axios';
+import Axios from "axios";
 
 class IPFSService {
-
   public async fetchData(hash: string): Promise<string> {
     const response = await Axios.get(`https://cloudflare-ipfs.com/ipfs/${hash}`);
 

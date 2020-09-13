@@ -1,7 +1,7 @@
 <template>
   <div v-if="delegate" class="WalletDelegate py-10">
     <h2 class="mb-5 text-xl md:text-2xl md:mb-6 text-theme-text-primary">Description</h2>
-    <div class="DelegateDescription" style="max-height: 150px" v-html="description"></div>
+    <div class="DelegateDescription" style="max-height: 150px;" v-html="description"></div>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { IWallet } from "@/interfaces";
 import WalletVoters from "@/components/wallet/Voters.vue";
-import { IPFSService } from '@/services';
+import { IPFSService } from "@/services";
 import { allowedHtmlTags } from "@/constants";
 import sanitizeHtml from "sanitize-html";
 
@@ -65,24 +65,26 @@ export default class WalletDelegateDescription extends Vue {
 }
 
 .DelegateDescription ul {
-   list-style-type: disc;
-   list-style-position: inside;
+  list-style-type: disc;
+  list-style-position: inside;
 }
 
 .DelegateDescription ol {
-   list-style-type: decimal;
-   list-style-position: inside;
+  list-style-type: decimal;
+  list-style-position: inside;
 }
 
-.DelegateDescription ul ul, ol ul {
-   list-style-type: circle;
-   list-style-position: inside;
-   margin-left: 15px;
+.DelegateDescription ul ul,
+ol ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  margin-left: 15px;
 }
 
-.DelegateDescription ol ol, ul ol {
-   list-style-type: lower-latin;
-   list-style-position: inside;
-   margin-left: 15px;
+.DelegateDescription ol ol,
+ul ol {
+  list-style-type: lower-latin;
+  list-style-position: inside;
+  margin-left: 15px;
 }
 </style>
