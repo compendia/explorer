@@ -52,7 +52,7 @@
         </div>
       </div>
 
-      <div v-if="view === 'public'" class="flex-none border-r border-grey-dark px-9">
+      <div v-if="view === 'public'" class="flex-none border-r border-grey-dark px-8">
         <div class="mb-2 text-grey">{{ $t("WALLET.BALANCE", { token: networkToken() }) }}</div>
         <div class="text-lg text-white semibold">
           <span v-tooltip="showBalanceTooltip ? readableCurrency(wallet.balance) : ''">
@@ -61,7 +61,7 @@
         </div>
       </div>
 
-      <div v-if="view === 'public'" class="flex-none border-r border-grey-dark px-9">
+      <div v-if="view === 'public'" class="flex-none border-r border-grey-dark px-8">
         <div class="mb-2 text-grey">{{ $t("STAKE.STAKED", { token: networkToken() }) }}</div>
         <div class="text-lg text-white semibold">
           <span
@@ -73,7 +73,7 @@
         </div>
       </div>
 
-      <div v-if="view === 'public'" class="flex-none border-r border-grey-dark px-9">
+      <div v-if="view === 'public'" class="flex-none border-r border-grey-dark px-8">
         <div class="mb-2 text-grey">{{ $t("STAKE.POWER") }}</div>
         <div class="text-lg text-white semibold">
           <span v-tooltip="showBalanceTooltip ? readableCurrency(wallet.power) : ''">
@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <div v-if="view === 'public' && hasLockedBalance" class="flex-none border-r border-grey-dark px-9">
+      <div v-if="view === 'public' && hasLockedBalance" class="flex-none border-r border-grey-dark px-8">
         <div class="flex items-center mb-2 text-grey">
           {{ $t("WALLET.LOCKED_BALANCE") }}
           <SvgIcon class="ml-2" name="locked-balance" view-box="0 0 16 17" />
