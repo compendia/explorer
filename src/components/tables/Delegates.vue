@@ -15,7 +15,12 @@
         </div>
 
         <div v-else-if="data.column.field === 'logo'">
-          <IpfsImage v-if="data.row.files.logo" custom-class="w-12 h-12" :hash="data.row.files.logo" :key="data.row.files.logo" />
+          <IpfsImage
+            v-if="data.row.files.logo"
+            :key="data.row.files.logo"
+            custom-class="w-12 h-12"
+            :hash="data.row.files.logo"
+          />
         </div>
 
         <div v-else-if="data.column.field === 'username'" class="flex items-center">
@@ -49,7 +54,7 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import { IDelegate, ISortParameters } from "@/interfaces";
-import { IPFSService } from '@/services';
+import { IPFSService } from "@/services";
 
 @Component
 export default class TableDelegatesDesktop extends Vue {
@@ -86,7 +91,7 @@ export default class TableDelegatesDesktop extends Vue {
         tdClass: `${this.hideRanks ? "start-cell" : ""} text-left`,
       },
       {
-        label: this.$t("PAGES.DELEGATE_MONITOR.FORGED_BLOCKS"),
+        label: this.$t("PAGES.VALIDATOR_MONITOR.FORGED_BLOCKS"),
         type: "number",
         field: "blocks.produced",
       },
@@ -96,7 +101,7 @@ export default class TableDelegatesDesktop extends Vue {
         field: "forged.total",
       },
       {
-        label: this.$t("PAGES.DELEGATE_MONITOR.VOTES"),
+        label: this.$t("PAGES.VALIDATOR_MONITOR.VOTES"),
         field: "votes",
         type: "number",
         thClass: "end-cell hidden lg:table-cell",

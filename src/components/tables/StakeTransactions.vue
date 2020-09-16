@@ -64,9 +64,9 @@ export default class LockTransactionsDesktop extends Vue {
   private smartbridgeFilter: string;
 
   get stakeValues() {
-      if (this.stakes) {
-        return Object.values(this.stakes);
-      }
+    if (this.stakes) {
+      return Object.values(this.stakes);
+    }
   }
 
   get columns() {
@@ -131,7 +131,6 @@ export default class LockTransactionsDesktop extends Vue {
     // if (!this.transactions) {
     //   return;
     // }
-
     // if (this.isListed) {
     //   const promises = this.transactions.map(this.fetchPrice);
     //   await Promise.all(promises);
@@ -144,10 +143,10 @@ export default class LockTransactionsDesktop extends Vue {
 
   private determineStakeTime(seconds: number) {
     return {
-      '31557600': 'a year',
-      '15778800': '6 months',
-      '7889400': '3 months',
-      '86400': 'a day',
+      "31557600": "a year",
+      "15778800": "6 months",
+      "7889400": "3 months",
+      "86400": "a day",
     }[seconds];
   }
 }

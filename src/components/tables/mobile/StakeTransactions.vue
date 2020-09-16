@@ -2,7 +2,6 @@
   <div>
     <Loader :data="stakeValues">
       <div v-for="stakeValue in stakeValues" :key="stakeValue.timestamps.created" class="row-mobile">
-
         <div class="list-row-border-b">
           <div class="mr-4">
             {{ $t("STAKE.STATUS") }}
@@ -86,10 +85,10 @@ export default class StakeTransactionsMobile extends Vue {
 
   private determineStakeTime(seconds: number) {
     return {
-      '31557600': 'a year',
-      '15778800': '6 months',
-      '7889400': '3 months',
-      '86400': 'a day',
+      "31557600": "a year",
+      "15778800": "6 months",
+      "7889400": "3 months",
+      "86400": "a day",
     }[seconds];
   }
 }

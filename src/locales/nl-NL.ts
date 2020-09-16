@@ -117,7 +117,7 @@ export default {
       LATEST_TRANSACTIONS: "Laatste Transacties",
       LATEST_BLOCKS: "Laatste Blocks",
     },
-    DELEGATE_MONITOR: {
+    VALIDATOR_MONITOR: {
       TITLE: "Afgevaardigde Monitor",
       HEADER: {
         LAST_BLOCK: "Laatste block",

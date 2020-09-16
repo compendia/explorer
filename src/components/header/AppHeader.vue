@@ -5,7 +5,7 @@
       class="flex items-center justify-center flex-none text-2xl logo-container w-50px md:w-80px h-50px md:h-80px xl:rounded-l-md"
       style="background-color: #1a202c;"
     >
-      <img class="logo max-w-25px md:max-w-38px" src="@/assets/images/logo.png" />
+      <img class="logo max-w-38px md:max-w-64px" src="@/assets/images/logo.png" />
     </RouterLink>
 
     <div class="relative hidden w-full xl:flex">
@@ -40,7 +40,7 @@ import { HeaderDefault, HeaderSearch, HeaderMenuDesktop, HeaderMenuMobile } from
     ...mapGetters("network", ["hasMagistrateEnabled"]),
 
     menuEntries() {
-      const entries = [{ name: "home" }, { name: "top-wallets", params: { page: 1 } }, { name: "delegate-monitor" }];
+      const entries = [{ name: "home" }, { name: "top-wallets", params: { page: 1 } }, { name: "validator-monitor" }];
 
       if (this.hasMagistrateEnabled) {
         entries.push({ name: "businesses", params: { page: 1 } }, { name: "bridgechains", params: { page: 1 } });

@@ -160,7 +160,7 @@ export default class TableWalletsDesktop extends Vue {
   private getStaked(stakes: IStake[]) {
     let staked = BigNumber.ZERO;
     for (const stake of stakes) {
-      if (stake.status !== 'released') {
+      if (stake.status !== "released") {
         staked = staked.plus(BigNumber.make(stake.amount));
       }
     }

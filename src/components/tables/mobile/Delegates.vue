@@ -28,13 +28,13 @@
             {{ $t("STAKE.LOGO") }}
           </div>
           <div>
-            <IpfsImage custom-class="w-12 h-12" :hash="delegate.files.logo" :key="data.row.files.logo" />
+            <IpfsImage :key="data.row.files.logo" custom-class="w-12 h-12" :hash="delegate.files.logo" />
           </div>
         </div>
 
         <div class="list-row-border-b">
           <div class="mr-4">
-            {{ $t("PAGES.DELEGATE_MONITOR.FORGED_BLOCKS") }}
+            {{ $t("PAGES.VALIDATOR_MONITOR.FORGED_BLOCKS") }}
           </div>
           <div>
             {{ readableNumber(delegate.blocks.produced) }}
@@ -52,7 +52,7 @@
 
         <div class="list-row">
           <div class="mr-4">
-            {{ $t("PAGES.DELEGATE_MONITOR.VOTES") }}
+            {{ $t("PAGES.VALIDATOR_MONITOR.VOTES") }}
           </div>
           <div>
             <span v-tooltip="$t('COMMON.SUPPLY_PERCENTAGE')" class="mr-1 text-xs text-grey">

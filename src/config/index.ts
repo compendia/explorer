@@ -24,6 +24,4 @@ export const knownWalletsUrls = {
   devnet: "https://raw.githubusercontent.com/ArkEcosystem/common/master/devnet/known-wallets.json",
 };
 
-export const socialMedia = [
-
-];
+export const socialMedia = [];

@@ -7,17 +7,19 @@
     <section v-show="isDelegate || wallet.vote" :class="{ 'py-5 md:py-10': isDelegate }" class="mb-5 page-section">
       <div class="px-5 sm:px-10">
         <WalletDelegate v-if="isDelegate" :wallet="wallet" />
-        <WalletVote v-if="wallet.vote" :wallet="wallet" />
+        <WalletVote v-if="wallet.vote && !isDelegate" :wallet="wallet" />
       </div>
     </section>
 
     <section v-if="isDelegate && wallet.files.description" class="mb-5 page-section">
-      <div class="px-5 sm:px-10">
+      <div class="px-5 sm:px-10" >
         <WalletDelegateDescription :wallet="wallet" />
       </div>
     </section>
 
-    <div v-show="isDelegate" class="text-center text-sm italic mt-1 mb-5 px-5 sm:px-10">{{ $t("STAKE.DELEGATE_DISCLAIMER", { delegate: wallet.username })}}</div>
+    <div v-show="isDelegate && wallet.files.description" class="text-center text-sm italic mt-1 mb-5 px-5 sm:px-10">
+      {{ $t("STAKE.DELEGATE_DISCLAIMER", { delegate: wallet.username }) }}
+    </div>
 
     <section v-show="isStaking" class="py-5 page-section md:py-10 mb-5">
       <WalletStaking :wallet="wallet" />
@@ -31,7 +33,14 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Route } from "vue-router";
 import { IWallet } from "@/interfaces";
-import { WalletDelegate, WalletDelegateDescription, WalletDetails, WalletStaking, WalletTransactions, WalletVote } from "@/components/wallet";
+import {
+  WalletDelegate,
+  WalletDelegateDescription,
+  WalletDetails,
+  WalletStaking,
+  WalletTransactions,
+  WalletVote,
+} from "@/components/wallet";
 import WalletService from "@/services/wallet";
 
 Component.registerHooks(["beforeRouteEnter", "beforeRouteUpdate"]);

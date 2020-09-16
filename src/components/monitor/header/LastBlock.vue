@@ -2,7 +2,7 @@
   <div class="flex justify-between flex-auto lg:ml-10">
     <div>
       <div class="min-w-0 mb-2 text-grey">
-        {{ $t("PAGES.DELEGATE_MONITOR.HEADER.LAST_BLOCK") }}
+        {{ $t("PAGES.VALIDATOR_MONITOR.HEADER.LAST_BLOCK") }}
       </div>
       <div v-if="block && block.id" class="text-lg truncate">
         <LinkBlock :id="block.id" :length="20" />
@@ -11,12 +11,12 @@
 
     <div class="hidden md:block">
       <div class="min-w-0 mb-2 text-grey">
-        {{ $t("PAGES.DELEGATE_MONITOR.HEADER.FORGED") }}
+        {{ $t("PAGES.VALIDATOR_MONITOR.HEADER.FORGED") }}
       </div>
       <div class="text-lg text-white truncate">
         <span v-if="block && block.forged">
           {{ readableCrypto(block.forged.total) }}
-          {{ $tc("PAGES.DELEGATE_MONITOR.HEADER.TX_COUNT", block.transactions, { count: block.transactions }) }}
+          {{ $tc("PAGES.VALIDATOR_MONITOR.HEADER.TX_COUNT", block.transactions, { count: block.transactions }) }}
         </span>
       </div>
     </div>

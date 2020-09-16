@@ -25,9 +25,7 @@
             name="multi-signature"
             view-box="0 0 14 14"
           />
-          <span v-if="name" class="ml-2 text-white semibold">
-            {{ name }}
-          </span>
+          <span v-if="name" class="ml-2 text-white semibold">{{ name }}</span>
           <SvgIcon
             v-if="name"
             v-tooltip="$t('WALLET.VERIFIED')"
@@ -37,7 +35,7 @@
           />
         </div>
         <div class="flex">
-          <div class="text-lg text-white truncate semibold">
+          <div class="text-lg text-white truncate semibold" style="min-width: 35px;">
             <span class="mr-2">{{ wallet.address }}</span>
           </div>
           <Clipboard v-if="wallet.address" :value="wallet.address" />
@@ -45,9 +43,7 @@
       </div>
 
       <div v-if="view === 'private' && wallet.publicKey" class="flex-auto min-w-0 pr-8">
-        <div class="mb-2 text-grey">
-          {{ $t("WALLET.PUBLIC_KEY") }}
-        </div>
+        <div class="mb-2 text-grey">{{ $t("WALLET.PUBLIC_KEY") }}</div>
         <div class="flex">
           <div class="mr-2 text-lg text-white truncate semibold">
             <span>{{ wallet.publicKey }}</span>
@@ -56,10 +52,8 @@
         </div>
       </div>
 
-      <div v-if="view === 'public'" class="flex-none border-r border-grey-dark px-9">
-        <div class="mb-2 text-grey">
-          {{ $t("WALLET.BALANCE", { token: networkToken() }) }}
-        </div>
+      <div v-if="view === 'public'" class="flex-none border-r border-grey-dark px-8">
+        <div class="mb-2 text-grey">{{ $t("WALLET.BALANCE", { token: networkToken() }) }}</div>
         <div class="text-lg text-white semibold">
           <span v-tooltip="showBalanceTooltip ? readableCurrency(wallet.balance) : ''">
             {{ readableCrypto(wallet.balance, false) }}
@@ -67,7 +61,28 @@
         </div>
       </div>
 
-      <div v-if="view === 'public' && hasLockedBalance" class="flex-none border-r border-grey-dark px-9">
+      <div v-if="view === 'public'" class="flex-none border-r border-grey-dark px-8">
+        <div class="mb-2 text-grey">{{ $t("STAKE.STAKED", { token: networkToken() }) }}</div>
+        <div class="text-lg text-white semibold">
+          <span
+            v-tooltip="
+              showBalanceTooltip ? readableCrypto(getStaked(Object.values(wallet.stakes)), true, true ? 2 : 8) : ''
+            "
+            >{{ readableCrypto(getStaked(Object.values(wallet.stakes)), true, true ? 2 : 8) }}</span
+          >
+        </div>
+      </div>
+
+      <div v-if="view === 'public'" class="flex-none border-r border-grey-dark px-8">
+        <div class="mb-2 text-grey">{{ $t("STAKE.POWER") }}</div>
+        <div class="text-lg text-white semibold">
+          <span v-tooltip="showBalanceTooltip ? readableCurrency(wallet.power) : ''">
+            {{ readableCrypto(wallet.power, false, true, 0) }}
+          </span>
+        </div>
+      </div>
+
+      <div v-if="view === 'public' && hasLockedBalance" class="flex-none border-r border-grey-dark px-8">
         <div class="flex items-center mb-2 text-grey">
           {{ $t("WALLET.LOCKED_BALANCE") }}
           <SvgIcon class="ml-2" name="locked-balance" view-box="0 0 16 17" />
@@ -82,9 +97,8 @@
               : ''
           "
           class="text-lg text-white semibold"
+          >{{ readableCrypto(wallet.lockedBalance, false) }}</span
         >
-          {{ readableCrypto(wallet.lockedBalance, false) }}
-        </span>
       </div>
 
       <div class="flex-none px-8">
@@ -136,18 +150,14 @@
                 view-box="0 0 14 14"
               />
             </div>
-            <div v-if="name" class="flex text-white semibold">
-              {{ name }}
-            </div>
+            <div v-if="name" class="flex text-white semibold">{{ name }}</div>
             <div class="flex text-white">
               <span class="mr-2">{{ truncate(wallet.address) }}</span>
               <Clipboard v-if="wallet.address" :value="wallet.address" />
             </div>
           </div>
           <div v-if="wallet.publicKey" class="flex-1 px-6 my-4 whitespace-no-wrap md:w-1/2">
-            <div class="mb-2 text-grey">
-              {{ $t("WALLET.PUBLIC_KEY") }}
-            </div>
+            <div class="mb-2 text-grey">{{ $t("WALLET.PUBLIC_KEY") }}</div>
             <div class="flex text-white">
               <span class="mr-2">{{ truncate(wallet.publicKey) }}</span>
               <Clipboard v-if="wallet.publicKey" :value="wallet.publicKey" />
@@ -159,17 +169,41 @@
             :class="{ 'border-r border-grey-dark -mr-1': hasLockedBalance }"
             class="flex-1 px-6 my-4 whitespace-no-wrap md:w-1/2"
           >
-            <div class="mb-2 text-grey">
-              {{ $t("WALLET.BALANCE", { token: networkToken() }) }}
-            </div>
+            <div class="mb-2 text-grey">{{ $t("WALLET.BALANCE", { token: networkToken() }) }}</div>
             <div class="text-white">
               <span
                 v-tooltip="{
                   trigger: 'hover click',
                   content: readableCurrency(wallet.balance),
                 }"
+                >{{ readableCrypto(wallet.balance, false) }}</span
               >
-                {{ readableCrypto(wallet.balance, false) }}
+            </div>
+          </div>
+
+          <div
+            :class="{ 'border-r border-grey-dark -mr-1': hasLockedBalance }"
+            class="flex-1 px-6 my-4 whitespace-no-wrap md:w-1/2"
+          >
+            <div class="mb-2 text-grey">{{ $t("STAKE.STAKED") }}</div>
+            <div class="text-white">
+              <span
+                v-tooltip="
+                  showBalanceTooltip ? readableCrypto(getStaked(Object.values(wallet.stakes)), true, true ? 2 : 8) : ''
+                "
+                >{{ readableCrypto(getStaked(Object.values(wallet.stakes)), true, true ? 2 : 8) }}</span
+              >
+            </div>
+          </div>
+
+          <div
+            :class="{ 'border-r border-grey-dark -mr-1': hasLockedBalance }"
+            class="flex-1 px-6 my-4 whitespace-no-wrap md:w-1/2"
+          >
+            <div class="mb-2 text-grey">{{ $t("STAKE.POWER") }}</div>
+            <div class="text-white">
+              <span v-tooltip="showBalanceTooltip ? readableCurrency(wallet.power) : ''">
+                {{ readableCrypto(wallet.power, false, true, 0) }}
               </span>
             </div>
           </div>
@@ -185,9 +219,8 @@
                 content: readableCurrency(wallet.lockedBalance),
               }"
               class="text-white"
+              >{{ readableCrypto(wallet.lockedBalance, false) }}</span
             >
-              {{ readableCrypto(wallet.lockedBalance, false) }}
-            </span>
           </div>
         </div>
       </div>
@@ -200,9 +233,10 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import { mapGetters } from "vuex";
-import { IWallet } from "@/interfaces";
+import { IWallet, IStake } from "@/interfaces";
 import WalletVoters from "@/components/wallet/Voters.vue";
 import { QrModal } from "@/components/modals";
+import { BigNumber } from "@/utils";
 
 @Component({
   components: {
@@ -254,6 +288,16 @@ export default class WalletDetails extends Vue {
 
   public toggleModal() {
     this.showModal = !this.showModal;
+  }
+
+  private getStaked(stakes: IStake[]) {
+    let staked = BigNumber.ZERO;
+    for (const stake of stakes) {
+      if (stake.status !== "released") {
+        staked = staked.plus(BigNumber.make(stake.amount));
+      }
+    }
+    return staked.toString();
   }
 }
 </script>

@@ -1,4 +1,10 @@
-import { CoreTransaction, FileTransaction, MagistrateTransaction, StakeTransaction, TypeGroupTransaction } from "@/enums";
+import {
+  CoreTransaction,
+  FileTransaction,
+  MagistrateTransaction,
+  StakeTransaction,
+  TypeGroupTransaction,
+} from "@/enums";
 
 const isCoreTypeGroup = (typeGroup: number): boolean => {
   return typeGroup === TypeGroupTransaction.CORE;
@@ -10,11 +16,11 @@ const isMagistrateTypeGroup = (typeGroup: number): boolean => {
 
 const isStakeTypeGroup = (typeGroup: number): boolean => {
   return typeGroup === TypeGroupTransaction.STAKE;
-}
+};
 
 const isFileTypeGroup = (typeGroup: number): boolean => {
   return typeGroup === TypeGroupTransaction.FILE;
-}
+};
 
 export default {
   methods: {
@@ -100,6 +106,6 @@ export default {
 
     isSetFile(type: number, typeGroup: number): boolean {
       return isFileTypeGroup(typeGroup) && type === FileTransaction.SET_FILE;
-    }
+    },
   },
 };

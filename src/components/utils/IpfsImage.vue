@@ -5,7 +5,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { ISortParameters, IWallet } from "@/interfaces";
-import { IPFSService } from '@/services';
+import { IPFSService } from "@/services";
 
 @Component
 export default class IpfsImage extends Vue {
@@ -15,7 +15,7 @@ export default class IpfsImage extends Vue {
   private imageData: string = null;
 
   public async mounted() {
-      this.imageData = await IPFSService.fetchData(this.hash);
+    this.imageData = await IPFSService.fetchData(this.hash);
   }
 }
 </script>

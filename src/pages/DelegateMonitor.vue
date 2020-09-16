@@ -1,19 +1,19 @@
 <template>
   <div class="max-w-2xl mx-auto md:pt-5">
-    <ContentHeader>{{ $t("PAGES.DELEGATE_MONITOR.TITLE") }}</ContentHeader>
+    <ContentHeader>{{ $t("PAGES.VALIDATOR_MONITOR.TITLE") }}</ContentHeader>
 
     <MonitorHeader />
 
     <section class="py-5 page-section md:py-10">
       <nav class="flex items-end mx-5 mb-4 overflow-x-auto border-b sm:mx-10">
         <div :class="activeTab === 'active' ? 'active-tab' : 'inactive-tab'" @click="activeTab = 'active'">
-          {{ $t("PAGES.DELEGATE_MONITOR.ACTIVE") }}
+          {{ $t("PAGES.VALIDATOR_MONITOR.ACTIVE") }}
         </div>
         <div :class="activeTab === 'standby' ? 'active-tab' : 'inactive-tab'" @click="activeTab = 'standby'">
-          {{ $t("PAGES.DELEGATE_MONITOR.STANDBY") }}
+          {{ $t("PAGES.VALIDATOR_MONITOR.STANDBY") }}
         </div>
         <div :class="activeTab === 'resigned' ? 'active-tab' : 'inactive-tab'" @click="activeTab = 'resigned'">
-          {{ $t("PAGES.DELEGATE_MONITOR.RESIGNED") }}
+          {{ $t("PAGES.VALIDATOR_MONITOR.RESIGNED") }}
         </div>
       </nav>
 

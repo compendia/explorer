@@ -146,7 +146,7 @@ describe("Homepage", () => {
           expect($items).to.have.length.within(3, 5);
           expect($items[0]).to.contain.text("Home");
           expect($items[1]).to.contain.text("Top Wallets");
-          expect($items[2]).to.contain.text("Delegate Monitor");
+          expect($items[2]).to.contain.text("Validator Monitor");
           if ($items.length === 6) {
             expect($items[3]).to.contain.text("Bridgechains");
             expect($items[4]).to.contain.text("Businesses");
@@ -159,7 +159,7 @@ describe("Homepage", () => {
     });
 
     it("should be possible to navigate to other pages and back", () => {
-      const pages = ["Top Wallets", "Delegate Monitor"];
+      const pages = ["Top Wallets", "Validator Monitor"];
 
       pages.forEach((page) => {
         cy.get("h1").then(($heading) => {

@@ -6,4 +6,12 @@ import WalletTransactions from "./Transactions.vue";
 import WalletVoters from "./Voters.vue";
 import WalletVote from "./Vote.vue";
 
-export { WalletDelegate, WalletDelegateDescription, WalletDetails, WalletStaking, WalletTransactions, WalletVoters, WalletVote };
+export {
+  WalletDelegate,
+  WalletDelegateDescription,
+  WalletDetails,
+  WalletStaking,
+  WalletTransactions,
+  WalletVoters,
+  WalletVote,
+};

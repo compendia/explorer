@@ -20,7 +20,12 @@
         </div>
 
         <div v-else-if="data.column.field === 'logo'">
-          <IpfsImage v-if="data.row.files.logo" custom-class="w-12 h-12" :hash="data.row.files.logo" :key="data.row.files.logo" />
+          <IpfsImage
+            v-if="data.row.files.logo"
+            :key="data.row.files.logo"
+            custom-class="w-12 h-12 rounded-md"
+            :hash="data.row.files.logo"
+          />
         </div>
 
         <div v-else-if="data.column.field === 'blocks.produced'">
@@ -60,7 +65,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { IDelegate, ISortParameters } from "@/interfaces";
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 import { BigNumber } from "@/utils";
 
 @Component({
@@ -102,14 +107,14 @@ export default class TableDelegates extends Vue {
         tdClass: `text-left ${this.isActiveTab ? "end-cell sm:base-cell" : this.isResignedTab ? "start-cell" : ""}`,
       },
       {
-        label: this.$t("PAGES.DELEGATE_MONITOR.FORGED_BLOCKS"),
+        label: this.$t("PAGES.VALIDATOR_MONITOR.FORGED_BLOCKS"),
         field: "blocks.produced",
         type: "number",
         thClass: "text-left hidden xl:table-cell",
         tdClass: "text-left hidden xl:table-cell",
       },
       {
-        label: this.$t("PAGES.DELEGATE_MONITOR.LAST_FORGED"),
+        label: this.$t("PAGES.VALIDATOR_MONITOR.LAST_FORGED"),
         field: "lastBlockHeight",
         type: "number",
         sortFn: this.sortByLastBlockHeight,
@@ -117,14 +122,14 @@ export default class TableDelegates extends Vue {
         tdClass: "text-left hidden sm:table-cell",
       },
       {
-        label: this.$t("PAGES.DELEGATE_MONITOR.STATUS.TITLE"),
+        label: this.$t("PAGES.VALIDATOR_MONITOR.STATUS.TITLE"),
         field: "forgingStatus",
         type: "number",
         thClass: "end-cell md:base-cell text-center",
         tdClass: "end-cell md:base-cell text-center",
       },
       {
-        label: this.$t("PAGES.DELEGATE_MONITOR.VOTES"),
+        label: this.$t("PAGES.VALIDATOR_MONITOR.VOTES"),
         field: "votes",
         type: "number",
         thClass: `end-cell hidden ${this.isActiveTab ? "md" : "sm"}:table-cell`,
@@ -160,7 +165,7 @@ export default class TableDelegates extends Vue {
       ? // Comment to keepe ts-ignore in check
         // @ts-ignore
         this.readableTimestampAgo(delegate.blocks.last.timestamp.unix)
-      : this.$i18n.t("PAGES.DELEGATE_MONITOR.NEVER");
+      : this.$i18n.t("PAGES.VALIDATOR_MONITOR.NEVER");
   }
 
   private statusTooltip(row: any) {
@@ -174,17 +179,17 @@ export default class TableDelegates extends Vue {
   private tooltipContent(row: any) {
     // @ts-ignore
     const status = {
-      0: this.$i18n.t("PAGES.DELEGATE_MONITOR.STATUS.FORGING"),
-      1: this.$i18n.t("PAGES.DELEGATE_MONITOR.STATUS.MISSING"),
-      2: this.$i18n.t("PAGES.DELEGATE_MONITOR.STATUS.NOT_FORGING"),
-      3: this.$i18n.t("PAGES.DELEGATE_MONITOR.STATUS.NEVER_FORGED"),
-      4: this.$i18n.t("PAGES.DELEGATE_MONITOR.STATUS.BECAME_ACTIVE"),
+      0: this.$i18n.t("PAGES.VALIDATOR_MONITOR.STATUS.FORGING"),
+      1: this.$i18n.t("PAGES.VALIDATOR_MONITOR.STATUS.MISSING"),
+      2: this.$i18n.t("PAGES.VALIDATOR_MONITOR.STATUS.NOT_FORGING"),
+      3: this.$i18n.t("PAGES.VALIDATOR_MONITOR.STATUS.NEVER_FORGED"),
+      4: this.$i18n.t("PAGES.VALIDATOR_MONITOR.STATUS.BECAME_ACTIVE"),
     }[row.forgingStatus];
 
     const lastBlock = row.blocks.last;
 
     return lastBlock
-      ? `[${status}] ${this.$i18n.t("PAGES.DELEGATE_MONITOR.TOOLTIP", {
+      ? `[${status}] ${this.$i18n.t("PAGES.VALIDATOR_MONITOR.TOOLTIP", {
           height: lastBlock.height,
         })} ${
           // @ts-ignore
@@ -205,7 +210,10 @@ export default class TableDelegates extends Vue {
   }
 
   private calculateApproval(votes: string): string {
-    return BigNumber.make(votes).dividedBy(BigNumber.make(this.supply).plus(BigNumber.make(this.stakePower))).times(100).toString();
+    return BigNumber.make(votes)
+      .dividedBy(BigNumber.make(this.supply).plus(BigNumber.make(this.stakePower)))
+      .times(100)
+      .toString();
   }
 
   private sortByLastBlockHeight(x: number, y: number, col: number, rowX: any, rowY: any) {
