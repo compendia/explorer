@@ -43,7 +43,7 @@
             class="mr-1 text-xs text-grey"
             >{{ percentageString(delegate.production.approval) }}</span
           >
-          {{ readableCrypto(delegate.votes, true, 2) }}
+          {{ readableCrypto(delegate.votes, false, 2) }}
         </div>
       </div>
 
