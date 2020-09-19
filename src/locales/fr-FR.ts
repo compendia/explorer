@@ -36,6 +36,7 @@ export default {
 
   BLOCK: {
     ID: "Bloc ID",
+    REMOVED_FEES: "Frais Enlevée",
     PAGINATION: {
       NEXT: "Bloc suivant",
       PREVIOUS: "Bloc précédent",
@@ -177,6 +178,7 @@ export default {
     NETWORK: "Réseau",
     MAIN: "Principal",
     DEVELOPMENT: "Développement",
+    REMOVED: "Enlevée",
     SUPPLY: "Stock",
     MARKET_CAP: "Capitalisation",
   },

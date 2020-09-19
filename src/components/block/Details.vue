@@ -58,6 +58,22 @@
 
       <div class="list-row-border-b">
         <div class="mr-4">
+          {{ $t("BLOCK.REMOVED_FEES") }}
+        </div>
+        <div
+          v-if="block.forged"
+          v-tooltip="{
+            trigger: 'hover click',
+            content: price ? readableCurrency(block.forged.removedFee, price) : '',
+            placement: 'left',
+          }"
+        >
+          {{ readableCrypto(block.forged.removedFee) }}
+        </div>
+      </div>
+
+      <div class="list-row-border-b">
+        <div class="mr-4">
           {{ $t("BLOCK.TOTAL_FORGED") }}
         </div>
         <div

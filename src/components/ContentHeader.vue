@@ -12,6 +12,9 @@
         <div class="pr-6">
           {{ $t("HEADER.SUPPLY") }}: <span class="whitespace-no-wrap">{{ readableCrypto(supply, true, 0) }}</span>
         </div>
+        <div class="pr-6">
+          {{ $t("HEADER.REMOVED") }}: <span class="whitespace-no-wrap">{{ readableCrypto(removed, true, 0) }}</span>
+        </div>
         <div :class="{ 'pr-6': showMarketCap }">
           {{ $t("STAKE.STAKED") }}: <span class="whitespace-no-wrap">{{ readableCrypto(staked, true, 0) }}</span>
         </div>
@@ -36,6 +39,10 @@
         <span class="block whitespace-no-wrap md:inline-block">{{ readableCrypto(staked, true, 0) }}</span>
       </div>
       <div>
+        <span>{{ $t("HEADER.REMOVED") }}:</span>
+        <span class="block whitespace-no-wrap md:inline-block">{{ readableCrypto(removed, true, 0) }}</span>
+      </div>
+      <div>
         <span>{{ $t("HEADER.SUPPLY") }}:</span>
         <span class="block whitespace-no-wrap md:inline-block">{{ readableCrypto(supply, true, 0) }}</span>
       </div>
@@ -51,7 +58,7 @@ import { mapGetters } from "vuex";
   computed: {
     ...mapGetters("network", ["alias", "height", "isListed", "token"]),
     ...mapGetters("currency", ["name", "rate", "symbol"]),
-    ...mapGetters("custom", ["supply", "staked"]),
+    ...mapGetters("custom", ["supply", "staked", "removed"]),
   },
 })
 export default class ContentHeader extends Vue {
@@ -64,6 +71,7 @@ export default class ContentHeader extends Vue {
   private isListed: boolean;
   private token: string;
   private staked: string;
+  private removed: string;
 
   get showMarketCap() {
     return this.isListed && this.token !== this.name;
