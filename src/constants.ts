@@ -1,5 +1,5 @@
 import { ITransactionType } from "@/interfaces";
-import { CoreTransaction, MagistrateTransaction, TypeGroupTransaction } from "@/enums";
+import { CoreTransaction, MagistrateTransaction, TypeGroupTransaction, StakeTransaction, FileTransaction } from "@/enums";
 
 export const URI_QRCODE_SCHEME_PREFIX = "ark:";
 
@@ -42,7 +42,26 @@ export const transactionTypes: ITransactionType[] = [
     type: MagistrateTransaction.BRIDGECHAIN_UPDATE,
     typeGroup: TypeGroupTransaction.MAGISTRATE,
   },
-  // TODO: add compendia
+  {
+    key: "STAKE_CREATE",
+    type: StakeTransaction.STAKE_CREATE,
+    typeGroup: TypeGroupTransaction.STAKE,
+  },
+  {
+    key: "STAKE_REDEEM",
+    type: StakeTransaction.STAKE_REDEEM,
+    typeGroup: TypeGroupTransaction.STAKE,
+  },
+  {
+    key: "STAKE_CANCEL",
+    type: StakeTransaction.STAKE_CANCEL,
+    typeGroup: TypeGroupTransaction.STAKE,
+  },
+  {
+    key: "SET_FILE",
+    type: FileTransaction.SET_FILE,
+    typeGroup: TypeGroupTransaction.FILE,
+  },
 ];
 
 export const apiLimit = 100;
