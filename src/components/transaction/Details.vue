@@ -70,6 +70,11 @@
           </div>
         </div>
 
+        <div v-if="isStakeCreate(transaction.type, transaction.typeGroup)" class="list-row-border-b">
+          <div class="mr-4">{{ $t("STAKE.DURATION") }}</div>
+          <div class="overflow-hidden break-all">{{ determineStakeTime(transaction.asset.stakeCreate.duration) }}</div>
+        </div>
+
         <div class="list-row-border-b">
           <div class="mr-4">{{ $t("TRANSACTION.FEE") }}</div>
           <div

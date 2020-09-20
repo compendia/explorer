@@ -140,15 +140,6 @@ export default class LockTransactionsDesktop extends Vue {
   private emitSortChange(params: ISortParameters[]) {
     this.$emit("on-sort-change", params[0]);
   }
-
-  private determineStakeTime(seconds: number) {
-    return {
-      "31557600": "a year",
-      "15778800": "6 months",
-      "7889400": "3 months",
-      "86400": "a day",
-    }[seconds];
-  }
 }
 </script>
 

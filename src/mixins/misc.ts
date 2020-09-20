@@ -80,5 +80,14 @@ export default {
       }
       return BigNumber.ZERO;
     },
+
+    determineStakeTime(seconds: number) {
+      return {
+        "31557600": "a year",
+        "15778800": "6 months",
+        "7889400": "3 months",
+        "86400": "a day",
+      }[seconds];
+    },
   },
 };
