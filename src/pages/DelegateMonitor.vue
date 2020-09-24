@@ -30,7 +30,7 @@
         <RouterLink
           :to="{
             name: activeTab === 'resigned' ? 'delegates-resigned' : 'delegates',
-            params: { page: activeTab === 'standby' ? 5 : 3 },
+            params: { page: 1 },
           }"
           tag="button"
           class="button-lg"
