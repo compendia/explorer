@@ -293,7 +293,7 @@ export default class WalletDetails extends Vue {
   private getStaked(stakes: IStake[]) {
     let staked = BigNumber.ZERO;
     for (const stake of stakes) {
-      if (stake.status !== "released") {
+      if (!["canceled", "redeemed"].includes(stake.status)) {
         staked = staked.plus(BigNumber.make(stake.amount));
       }
     }
