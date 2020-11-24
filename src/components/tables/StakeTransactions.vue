@@ -20,10 +20,13 @@
 
         <div v-else-if="data.column.field === 'timestamps.graceEnd'">
           <span>
-            {{ readableTimestampAgo(data.row.timestamps.redeemable) }}
+            {{
+              data.row.status === "redeeming"
+                ? readableTimestampAgo(data.row.timestamps.redeemAt)
+                : readableTimestampAgo(data.row.timestamps.redeemable)
+            }}
           </span>
         </div>
-
         <div v-else-if="data.column.field === 'power'">
           <TransactionAmount :transaction="data.row" :stake-power="data.row.power" />
         </div>
