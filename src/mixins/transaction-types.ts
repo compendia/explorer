@@ -104,6 +104,10 @@ export default {
       return isStakeTypeGroup(typeGroup) && type === StakeTransaction.STAKE_CANCEL;
     },
 
+    isStakeExtend(type: number, typeGroup: number): boolean {
+      return isStakeTypeGroup(typeGroup) && type === StakeTransaction.STAKE_EXTEND;
+    },
+
     isSetFile(type: number, typeGroup: number): boolean {
       return isFileTypeGroup(typeGroup) && type === FileTransaction.SET_FILE;
     },

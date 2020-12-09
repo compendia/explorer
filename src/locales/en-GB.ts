@@ -134,6 +134,7 @@ export default {
       STAKE_CREATE: "Stake",
       STAKE_REDEEM: "Redeem Stake",
       STAKE_CANCEL: "Cancel Stake",
+      STAKE_EXTEND: "Extend Stake",
       SET_FILE: "Set File",
       SENT: "Sent",
       RECEIVED: "Received",

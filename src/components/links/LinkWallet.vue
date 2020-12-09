@@ -65,6 +65,7 @@
     <span v-else-if="isStakeCreate(type, typeGroup)">{{ $t("TRANSACTION.TYPES.STAKE_CREATE") }} ({{ determineStakeTime(asset.stakeCreate.duration) }})</span>
     <span v-else-if="isStakeRedeem(type, typeGroup)">{{ $t("TRANSACTION.TYPES.STAKE_REDEEM") }}</span>
     <span v-else-if="isStakeCancel(type, typeGroup)">{{ $t("TRANSACTION.TYPES.STAKE_CANCEL") }}</span>
+    <span v-else-if="isStakeExtend(type, typeGroup)">{{ $t("TRANSACTION.TYPES.STAKE_EXTEND") }}</span>
     <span v-else-if="isSetFile(type, typeGroup)">{{ $t("TRANSACTION.TYPES.SET_FILE") }}</span>
     <!-- By default we simply link to a recipient as we don't know this type / typegroup combination -->
     <div v-else>

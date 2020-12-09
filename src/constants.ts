@@ -58,6 +58,11 @@ export const transactionTypes: ITransactionType[] = [
     typeGroup: TypeGroupTransaction.STAKE,
   },
   {
+    key: "STAKE_EXTEND",
+    type: StakeTransaction.STAKE_EXTEND,
+    typeGroup: TypeGroupTransaction.STAKE,
+  },
+  {
     key: "SET_FILE",
     type: FileTransaction.SET_FILE,
     typeGroup: TypeGroupTransaction.FILE,
