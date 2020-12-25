@@ -25,6 +25,7 @@ export enum StakeTransaction {
   STAKE_CREATE = 0,
   STAKE_REDEEM = 1,
   STAKE_CANCEL = 2,
+  STAKE_EXTEND = 3,
 }
 
 export enum FileTransaction {

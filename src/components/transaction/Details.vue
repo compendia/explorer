@@ -36,7 +36,21 @@
           <div>{{ readableNumber(confirmations) }}</div>
         </div>
 
-        <div class="list-row-border-b">
+        <div v-if="isStakeExtend(transaction.type, transaction.typeGroup)" class="list-row-border-b">
+          <div class="mr-4">Stake ID</div>
+          <div class="overflow-hidden break-all">
+          <LinkTransaction
+            :id="transaction.asset.stakeExtend.id"
+          />
+         </div>
+        </div>
+
+        <div v-if="isStakeExtend(transaction.type, transaction.typeGroup)" class="list-row-border-b">
+          <div class="mr-4">{{ $t("STAKE.DURATION") }}</div>
+          <div class="overflow-hidden break-all">{{ determineStakeTime(transaction.asset.stakeExtend.duration) }}</div>
+        </div>
+
+        <div v-if="!isStakeExtend(transaction.type, transaction.typeGroup)" class="list-row-border-b">
           <div class="mr-4">{{ $t("TRANSACTION.AMOUNT") }}</div>
           <div
             v-if="isMultiPayment(transaction.type, transaction.typeGroup)"

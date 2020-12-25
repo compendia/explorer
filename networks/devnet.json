@@ -1,13 +1,13 @@
 {
-  "title": "DARK Explorer",
-  "server": "https://dexplorer.ark.io/api",
+  "title": "BIND Testnet Explorer",
+  "server": "https://api.nos.dev/api",
   "alias": "Development",
-  "activeDelegates": 51,
-  "rewardOffset": 10800,
+  "activeDelegates": 47,
+  "rewardOffset": 0,
   "currencies": [],
   "defaults": {
-    "token": "DARK",
-    "symbol": "DѦ",
+    "token": "TBIND",
+    "symbol": "Tß",
     "currency": null,
     "priceChartOptions": {
       "enabled": false,
