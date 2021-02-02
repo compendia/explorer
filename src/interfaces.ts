@@ -363,4 +363,5 @@ export interface IWalletSearchParams {
   username?: string;
   vote?: string;
   balance?: { from?: number; to?: number };
+  power?: { from?: number; to?: number };
 }

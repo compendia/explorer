@@ -55,9 +55,9 @@ class DelegateService {
     const response = (await WalletService.search(
       {
         vote: publicKey,
-        balance: {
-          from: excludeLowBalances ? 1e7 : 0,
-        },
+        // balance: {
+        //   from: excludeLowBalances ? 1e7 : 0,
+        // },
       },
       1,
       1,
