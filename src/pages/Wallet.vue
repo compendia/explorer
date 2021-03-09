@@ -11,14 +11,22 @@
       </div>
     </section>
 
-    <section v-if="isDelegate && wallet.files.description" class="mb-5 page-section">
-      <div class="px-5 sm:px-10" >
+    <section v-if="isDelegate && wallet.files.description && !isBlacklisted" class="mb-5 page-section">
+      <div class="px-5 sm:px-10">
         <WalletDelegateDescription :wallet="wallet" />
       </div>
     </section>
 
-    <div v-show="isDelegate && wallet.files.description" class="text-center text-sm italic mt-1 mb-5 px-5 sm:px-10">
+    <div v-show="isDelegate && !isBlacklisted && wallet.files.description" class="text-center text-sm italic mt-1 mb-5 px-5 sm:px-10">
       {{ $t("STAKE.DELEGATE_DISCLAIMER", { delegate: wallet.username }) }}
+    </div>
+
+    <div v-show="isBlacklisted" class="text-center text-sm italic mt-1 mb-5 px-5 sm:px-10">
+      <div style="margin-top:7px; opacity: 0.5;">
+        <small>
+          This validator's profile has been filtered from Compendia's official services as it broke <a href="https://compendia.org/use-common-sense" target="_blank">Common Sense Guidelines</a>. The content may still be available on <a href="https://github.com/Bx64/Awesome-Compendia" target="_blank">third-party services</a>.
+        </small>
+      </div>
     </div>
 
     <section v-show="isStaking" class="py-5 page-section md:py-10 mb-5">
@@ -42,6 +50,7 @@ import {
   WalletVote,
 } from "@/components/wallet";
 import WalletService from "@/services/wallet";
+const blacklist = require("@/components/wallet/blacklist.json");
 
 Component.registerHooks(["beforeRouteEnter", "beforeRouteUpdate"]);
 
@@ -58,6 +67,12 @@ Component.registerHooks(["beforeRouteEnter", "beforeRouteUpdate"]);
 export default class WalletPage extends Vue {
   private wallet: IWallet | null = null;
   private activeTab = "all";
+
+  get isBlacklisted() {
+    if (this.wallet && this.wallet.address && blacklist.wallets.includes(this.wallet.address)) {
+      return true;
+    }
+  }
 
   get isDelegate() {
     if (this.wallet) {

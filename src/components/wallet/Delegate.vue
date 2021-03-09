@@ -1,6 +1,6 @@
 <template>
   <div v-if="delegate" class="flex flex-col WalletDelegate md:flex-row">
-    <div v-if="delegate.files.logo" class="self-center w-full max-w-xs md:w-full md:mr-10">
+    <div v-if="delegate.files.logo && !isBlacklisted" class="self-center w-full max-w-xs md:w-full md:mr-10">
       <div>
         <img v-if="logoData" loading="lazy" :src="logoData" class="object-contain rounded-lg m-auto" />
       </div>
@@ -78,6 +78,7 @@ import { IWallet } from "@/interfaces";
 import WalletVoters from "@/components/wallet/Voters.vue";
 import WalletVote from "@/components/wallet/Vote.vue";
 import { IPFSService } from "@/services";
+const blacklist = require("@/components/wallet/blacklist.json");
 
 @Component({
   components: {
@@ -89,6 +90,12 @@ export default class WalletDelegate extends Vue {
   @Prop({ required: true }) public wallet: IWallet;
 
   private logoData: string | null = null;
+
+  get isBlacklisted() {
+    if (this.wallet && this.wallet.address && blacklist.wallets.includes(this.wallet.address)) {
+      return true;
+    }
+  }
 
   get delegate() {
     return this.$store.getters["delegates/byPublicKey"](this.wallet.publicKey);
