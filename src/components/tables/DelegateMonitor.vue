@@ -19,7 +19,7 @@
           >
         </div>
 
-        <div v-else-if="data.column.field === 'logo'">
+        <div v-else-if="data.column.field === 'logo' && !isBlacklisted(data.row.address)">
           <IpfsImage
             v-if="data.row.files.logo"
             :key="data.row.files.logo"
@@ -67,6 +67,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import { IDelegate, ISortParameters } from "@/interfaces";
 import { mapGetters } from "vuex";
 import { BigNumber } from "@/utils";
+const blacklist = require("@/components/wallet/blacklist.json");
 
 @Component({
   computed: {
@@ -158,6 +159,12 @@ export default class TableDelegates extends Vue {
 
   get isResignedTab() {
     return this.activeTab === "resigned";
+  }
+
+  private isBlacklisted(address: string) {
+    if (blacklist.wallets.includes(address)) {
+      return true;
+    }
   }
 
   private lastForgingTime(delegate: IDelegate) {

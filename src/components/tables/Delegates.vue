@@ -14,7 +14,7 @@
           </span>
         </div>
 
-        <div v-else-if="data.column.field === 'logo'">
+        <div v-else-if="data.column.field === 'logo' && !isBlacklisted(data.row.address)">
           <IpfsImage
             v-if="data.row.files.logo"
             :key="data.row.files.logo"
@@ -55,6 +55,7 @@
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import { IDelegate, ISortParameters } from "@/interfaces";
 import { IPFSService } from "@/services";
+const blacklist = require("@/components/wallet/blacklist.json");
 
 @Component
 export default class TableDelegatesDesktop extends Vue {
@@ -113,6 +114,12 @@ export default class TableDelegatesDesktop extends Vue {
     }
 
     return columns;
+  }
+
+  private isBlacklisted(address: string) {
+    if (blacklist.wallets.includes(address)) {
+      return true;
+    }
   }
 
   private emitSortChange(params: ISortParameters[]) {
