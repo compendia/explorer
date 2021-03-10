@@ -24,7 +24,7 @@
     <div v-show="isBlacklisted" class="text-center text-sm italic mt-1 mb-5 px-5 sm:px-10">
       <div style="margin-top:7px; opacity: 0.5;">
         <small>
-          This validator's profile has been filtered from Compendia's official services as it didn't follow <a href="https://compendia.org/use-common-sense" target="_blank">Common Sense Guidelines</a>. The content may still be available on <a href="https://github.com/Bx64/Awesome-Compendia" target="_blank">third-party services</a>.
+          This validator's profile has been filtered from Compendia's official services as it failed to follow <a href="https://compendia.org/use-common-sense" target="_blank">Common Sense Guidelines</a>. The content may still be available on <a href="https://github.com/Bx64/Awesome-Compendia" target="_blank">third-party services</a>.
         </small>
       </div>
     </div>
