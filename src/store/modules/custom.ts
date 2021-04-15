@@ -31,7 +31,7 @@ const actions: ActionTree<ICustomStoreState, {}> = {
       value,
     });
   },
-  setStakePower: ({ commit }, value) => {
+  setTotalPower: ({ commit }, value) => {
     commit({
       type: types.SET_CUSTOM_STAKE_POWER,
       value,

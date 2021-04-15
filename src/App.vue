@@ -203,10 +203,9 @@ export default class App extends Vue {
   public async updateStakes() {
     const stakeData = await StakeService.fetchStakes();
 
-    this.$store.dispatch("custom/setSupply", stakeData.supply);
-    this.$store.dispatch("custom/setRemoved", stakeData.removed);
-    this.$store.dispatch("custom/setStaked", stakeData.staked);
-    this.$store.dispatch("custom/setStakePower", stakeData.stakePower);
+    this.$store.dispatch("custom/setSupply", stakeData.circulating);
+    this.$store.dispatch("custom/setStaked", stakeData.totalStaked);
+    this.$store.dispatch("custom/setTotalPower", stakeData.totalPower);
   }
 
   public async updateHeight() {

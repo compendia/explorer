@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <div class="flex flex-wrap justify-between px-5 sm:px-10 xl:px-0">
+    <div class="flex flex-wrap justify-between px-5 sm:px-10 xl:px-0">
       <h1 class="mb-5 text-2xl md:text-3xl md:mb-6 text-theme-text-primary sm:mr-5">
         <slot />
       </h1>
@@ -12,9 +12,6 @@
         <div class="pr-6">
           {{ $t("HEADER.SUPPLY") }}: <span class="whitespace-no-wrap">{{ readableCrypto(supply, true, 0) }}</span>
         </div>
-        <div class="pr-6">
-          {{ $t("HEADER.REMOVED") }}: <span class="whitespace-no-wrap">{{ readableCrypto(removed, true, 0) }}</span>
-        </div>
         <div :class="{ 'pr-6': showMarketCap }">
           {{ $t("STAKE.STAKED") }}: <span class="whitespace-no-wrap">{{ readableCrypto(staked, true, 0) }}</span>
         </div>
@@ -22,7 +19,7 @@
           {{ $t("HEADER.MARKET_CAP") }}: <span class="whitespace-no-wrap">{{ readableCurrency(supply) }}</span>
         </div>
       </div>
-    </div> -->
+    </div>
     <div
       class="flex items-center justify-between px-5 py-3 text-xs sm:hidden text-theme-text-tertiary sm:px-8 xl:px-6 bg-stat-background"
     >

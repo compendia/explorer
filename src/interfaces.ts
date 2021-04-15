@@ -215,11 +215,11 @@ export interface IApiNodeStatus {
 }
 
 export interface IApiStakeStatistics {
-  supply: string;
-  removed: string;
-  staked: string;
-  stakePower: string;
-  stakes: any;
+  circulating: string;
+  removed?: string;
+  totalStaked: string;
+  totalPower: string;
+  staked: any;
 }
 
 export interface ICurrencyState {
