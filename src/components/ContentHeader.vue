@@ -35,10 +35,10 @@
         <span>{{ $t("STAKE.STAKED") }}:</span>
         <span class="block whitespace-no-wrap md:inline-block">{{ readableCrypto(staked, true, 0) }}</span>
       </div>
-      <div>
+      <!-- <div>
         <span>{{ $t("HEADER.REMOVED") }}:</span>
         <span class="block whitespace-no-wrap md:inline-block">{{ readableCrypto(removed, true, 0) }}</span>
-      </div>
+      </div> -->
       <div>
         <span>{{ $t("HEADER.SUPPLY") }}:</span>
         <span class="block whitespace-no-wrap md:inline-block">{{ readableCrypto(supply, true, 0) }}</span>
